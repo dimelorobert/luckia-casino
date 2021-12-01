@@ -18,10 +18,16 @@ export default {
      data() {
           return {
                initialValue: "",
-               amount: "",
+               amount: "0.00",
                placeholder: "",
           };
      },
+
+     props: {
+          config: Object,
+          culture: String,
+     },
+
      watch: {
           amount() {
                this.amount = this.amount.replace(/[a-z\sA-Z]+/g, "");
@@ -32,17 +38,23 @@ export default {
           },
      },
 
-     props: {
-          config: Object,
-          culture: String,
-     },
-
      methods: {
-          main() {
+          main(e) {
                this.initialValue = this.amount;
                if (this.amount === "") this.amount = "0.00";
                this.currencyToFloat();
-               this.resultFormatted();
+               this.amount = this.resultFormatted().sign;
+
+               this.amount;
+          },
+
+          setFocusValue() {
+               this.amount = this.initialValue;
+          },
+
+          currencyToFloat() {
+               this.amount = this.amount.replace(",", ".");
+               this.amount = parseFloat(this.amount);
           },
 
           currencyObject() {
@@ -58,25 +70,30 @@ export default {
 
           resultFormatted() {
                let result = [];
-               this.currencyObject().map((currency) =>
-                    result.push(currency.value)
-               );
-               this.amount = result.join("");
-               console.log("RESULT FORMATTED::>", result.join(""));
-          },
+               let resultNoSign = [];
 
-          setFocusValue() {
-               this.amount = this.initialValue;
-          },
+               // Sign
+               this.currencyObject().map((currency) => {
+                    result.push(currency.value);
+               });
 
-          currencyToFloat() {
-               this.amount = this.amount.replace(",", ".");
-               this.amount = parseFloat(this.amount);
+               // No sign
+               this.currencyObject().filter((currency) => {
+                    if (currency.type !== "currency")
+                         resultNoSign.push(currency.value);
+               });
+
+               let resulStorage = {
+                    sign: (this.amount = result.join("")),
+                    noSign: (this.amount = resultNoSign.join("")),
+               };
+
                console.log(
-                    "FORMATEADO A FLOAT::>",
-                    typeof this.amount,
-                    this.amount
+                    "RESULT FORMATTED::>",
+                    resulStorage.sign,
+                    resulStorage.noSign
                );
+               return resulStorage;
           },
      },
 };
