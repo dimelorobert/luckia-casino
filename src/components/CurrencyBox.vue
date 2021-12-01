@@ -5,7 +5,6 @@
                type="text"
                v-model="amount"
                :placeholder="placeholder"
-               @keyup="removeLettersAndWhitespaces"
                @focus="setFocusValue"
                @blur="main"
           />
@@ -13,17 +12,24 @@
 </template>
 
 <script>
-
 export default {
      name: "CurrencyBox",
-     
+
      data() {
           return {
+               initialValue: "",
                amount: "",
-               placeholder: "0.00",
-               focusValue: "",
-               currencySign: "",
+               placeholder: "",
           };
+     },
+     watch: {
+          amount() {
+               this.amount = this.amount.replace(/[a-z\sA-Z]+/g, "");
+               this.amount = this.amount.replace(
+                    /[`~!@#$%^&*()_|+\=?;:'"·¬?¿¡¨´ºª<>ñ\{\}\[\]\\\/]/g,
+                    ""
+               );
+          },
      },
 
      props: {
@@ -32,68 +38,45 @@ export default {
      },
 
      methods: {
-          main(e) {
-               this.focusValue = this.amount;
-
-               if (this.amount === null || this.amount === "") {
-                    this.amount = "0.00";
-               }
-
-               this.amountFormatted();
+          main() {
+               this.initialValue = this.amount;
+               if (this.amount === "") this.amount = "0.00";
+               this.currencyToFloat();
+               this.resultFormatted();
           },
 
-          getCurrencySign() {
-               let currencyData = new Intl.NumberFormat(
+          currencyObject() {
+               let currencyProps = new Intl.NumberFormat(
                     this.culture,
                     this.config
                ).formatToParts(this.amount);
 
-               let signObj = currencyData.find(
-                    (currencySign) => currencySign.type === "currency"
-               );
+               console.log("CURRENCY PROPS::>> ", currencyProps);
 
-               this.placeholder = this.amount + signObj.value;
-               console.log("FOCUS VALUE ::>", this.placeholder);
+               return currencyProps;
+          },
+
+          resultFormatted() {
+               let result = [];
+               this.currencyObject().map((currency) =>
+                    result.push(currency.value)
+               );
+               this.amount = result.join("");
+               console.log("RESULT FORMATTED::>", result.join(""));
           },
 
           setFocusValue() {
-               this.amount = this.focusValue;
+               this.amount = this.initialValue;
           },
 
-          formatInputValue() {
-               this.amount = Number(this.amount.slice(0, -1).replace(",", "."))
-                    .toFixed(2)
-                    .toString();
-          },
-
-          amountFormatted() {
-               if (this.amount.match(/(,|\.)\d{1,}$/g)) {
-                    this.amount = this.amount.replace(",", ".");
-               }
-
-               this.amount.replace(",", ".");
-
-               this.amount = this.currencyFormatter(parseFloat(this.amount));
-          },
-
-          removeLettersAndWhitespaces() {
-               this.amount = this.amount.replace(/[a-z\sA-Z]+/g, "");
-               this.amount = this.amount.replace(
-                    /[`~!@#$%^&*()_|+\=?;:'"·¬?¿¡¨´ºª<>ñ\{\}\[\]\\\/]/g,
-                    ""
+          currencyToFloat() {
+               this.amount = this.amount.replace(",", ".");
+               this.amount = parseFloat(this.amount);
+               console.log(
+                    "FORMATEADO A FLOAT::>",
+                    typeof this.amount,
+                    this.amount
                );
-          },
-
-          currencyFormatter(amount) {
-               let currencyData = new Intl.NumberFormat(
-                    this.culture,
-                    this.config
-               ).format(amount);
-
-               let currencyHasMinusSign = currencyData.split("");
-               currencyHasMinusSign.join("").slice(0, -1).split("")[1];
-
-               return currencyData;
           },
      },
 };
@@ -108,10 +91,10 @@ input[type="number"]::-webkit-outer-spin-button {
 
 input[type="number"] {
      -moz-appearance: textfield;
-     height: 1.5rem;
+     height: 3rem;
 }
 input {
-     height: 2.5rem;
+     height: 3rem;
      font-size: 2rem;
      border-radius: 0.25rem;
 }
