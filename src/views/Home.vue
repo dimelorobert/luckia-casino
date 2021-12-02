@@ -27,6 +27,7 @@ export default {
                     currency: "EUR",
                     currencyDisplay: "symbol",
                     currencySign: "standard",
+                    //minimumIntegerDigits: 6,
                     maximumFractionDigits: 2,
                     minimumFractionDigits: 2,
                     signDisplay: "auto",

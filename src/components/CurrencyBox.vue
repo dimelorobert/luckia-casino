@@ -2,11 +2,13 @@
      <div>
           <input
                class="o-input"
-               type="text"
-               v-model="amount"
+               v-model.number="amount"
+               type="number"
                :placeholder="placeholder"
-               @focus="setFocusValue"
+               @input="setInput"
+               @focus="setFocus"
                @blur="main"
+               autocomplete="off"
           />
      </div>
 </template>
@@ -17,8 +19,8 @@ export default {
 
      data() {
           return {
-               initialValue: "",
-               amount: "0.00",
+               initialValue: null,
+               amount: 0,
                placeholder: "",
           };
      },
@@ -29,71 +31,65 @@ export default {
      },
 
      watch: {
-          amount() {
-               this.amount = this.amount.replace(/[a-z\sA-Z]+/g, "");
-               this.amount = this.amount.replace(
-                    /[`~!@#$%^&*()_|+\=?;:'"·¬?¿¡¨´ºª<>ñ\{\}\[\]\\\/]/g,
-                    ""
+          // new = Number , old = String
+          amount(newAmount, oldAmount) {
+               console.log(
+                    "1- [WATCH] lo detecta el evento @focus AMOUNT:::>",
+                    typeof newAmount,
+                    newAmount
                );
           },
      },
 
      methods: {
           main(e) {
+               console.log(
+                    "[MAIN] evento: INPUT VALUE:::>",
+                    typeof e.target.value,
+                    e.target.type
+               );
                this.initialValue = this.amount;
-               if (this.amount === "") this.amount = "0.00";
-               this.currencyToFloat();
-               this.amount = this.resultFormatted().sign;
+               let result = [];
 
-               this.amount;
+               this.currencyObject(this.amount).map((currency) =>
+                    result.push(currency.value)
+               );
+               e.target.type = "text";
+               this.amount = result.join("");
+               console.log("[MAIN] RESULT:::>", result.join(""), this.amount);
           },
 
-          setFocusValue() {
+          setFocus(e) {
+               console.log("set focus value", e.target.value);
+               // initValue = null
                this.amount = this.initialValue;
+               if (!e.target.value.length <= 0) {
+                    this.amount = e.target.value.slice(0, -2);
+               }
           },
 
-          currencyToFloat() {
-               this.amount = this.amount.replace(",", ".");
-               this.amount = parseFloat(this.amount);
+          setInput(e) {
+               let inputValue = e.target.value;
+               let r = (inputValue = parseFloat(inputValue));
+
+               console.log(
+                    "2- [SET INPUT] lo detecta el evento @input: INPUT VALUE:::>",
+                    typeof inputValue,
+                    inputValue,
+                    typeof r,
+                    r
+               );
           },
 
-          currencyObject() {
+          currencyObject(amount) {
                let currencyProps = new Intl.NumberFormat(
                     this.culture,
                     this.config
-               ).formatToParts(this.amount);
+               ).formatToParts(amount);
 
-               console.log("CURRENCY PROPS::>> ", currencyProps);
+               console.log("3- CURRENCY PROPS::>> ", currencyProps);
 
                return currencyProps;
-          },
-
-          resultFormatted() {
-               let result = [];
-               let resultNoSign = [];
-
-               // Sign
-               this.currencyObject().map((currency) => {
-                    result.push(currency.value);
-               });
-
-               // No sign
-               this.currencyObject().filter((currency) => {
-                    if (currency.type !== "currency")
-                         resultNoSign.push(currency.value);
-               });
-
-               let resulStorage = {
-                    sign: (this.amount = result.join("")),
-                    noSign: (this.amount = resultNoSign.join("")),
-               };
-
-               console.log(
-                    "RESULT FORMATTED::>",
-                    resulStorage.sign,
-                    resulStorage.noSign
-               );
-               return resulStorage;
           },
      },
 };
