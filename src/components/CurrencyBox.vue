@@ -66,6 +66,7 @@ export default {
       
       e.target.type = "number";
       this.amount = Number(this.initialValue).toFixed(2);
+
     },
 
     setInput(e) {
