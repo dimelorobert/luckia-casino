@@ -24,7 +24,7 @@ export default {
           return {
                // Currency Box Config parameters
                config: {
-                    currency: "EUR",
+                    currency: "COP",
                     currencyDisplay: "symbol",
                     currencySign: "standard",
                     //minimumIntegerDigits: 6,
@@ -35,7 +35,7 @@ export default {
                     useGrouping: true,
                },
                currencyAmount: "",
-               culture: "es-ES",
+               culture: "es-CO",
           };
      },
 };

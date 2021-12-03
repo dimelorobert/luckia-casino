@@ -1,115 +1,113 @@
 <template>
-  <div>
-    <input
-      class="o-input"
-      v-model.number="amount"
-      type="number"
-      :placeholder="placeholder"
-      @input="setInput"
-      @focus="setFocus"
-      @blur="main"
-      autocomplete="off"
-    />
-  </div>
+     <div>
+          <input
+               class="o-input"
+               v-model.number="amount"
+               type="number"
+               :placeholder="placeholder"
+               @focus="setFocus"
+               @blur="main"
+               autocomplete="off"
+          />
+     </div>
 </template>
 
 <script>
 export default {
-  name: "CurrencyBox",
+     name: "CurrencyBox",
 
-  data() {
-    return {
-      initialValue: null,
-      amount: 0,
-      placeholder: "",
-      focusValue: 0,
-    };
-  },
+     data() {
+          return {
+               initialValue: "",
+               amount: null,
+               placeholder: "",
+          };
+     },
 
-  props: {
-    config: Object,
-    culture: String,
-  },
+     props: {
+          config: Object,
+          culture: String,
+     },
 
-  watch: {
-    // new = Number , old = String
-    amount(newAmount, oldAmount) {
-      console.log(
-        "1- [WATCH] lo detecta el evento @focus AMOUNT:::>",
-        typeof newAmount,
-        newAmount
-      );
-      this.amount;
-    },
-  },
+     watch: {
+          // new = Number , old = String
+          amount(newAmount, oldAmount) {
+               console.log(
+                    "1- [WATCH] lo detecta el evento @focus AMOUNT:::>",
+                    typeof newAmount,
+                    newAmount
+               );
+          },
+     },
 
-  methods: {
-    main(e) {
-      console.log(
-        "[MAIN] evento: INPUT VALUE:::>",
-        typeof e.target.value,
-        e.target.type
-      );
-      this.initialValue = this.amount;
-      let result = [];
+     methods: {
+          main(e) {
+               e.target.type = "text";
 
-      this.currencyObject(this.amount).map((currency) =>
-        result.push(currency.value)
-      );
-      e.target.type = "text";
-      this.amount = result.join("");
-      console.log("[MAIN] RESULT:::>", result.join(""), this.amount);
-    },
+               this.initialValue = this.amount;
 
-    setFocus(e) {
-      console.log("set focus value", e.target.value);
-      
-      e.target.type = "number";
-      this.amount = Number(this.initialValue).toFixed(2);
+               let result = [];
+               let currencyObj = this.currencyObject(this.amount);
+               currencyObj.map((currency) => result.push(currency.value));
 
-    },
+               if (
+                    currencyObj[0].value === "-" &&
+                    this.config.currency !== "EUR"
+               ) {
+                    let [{ value: currency }] = currencyObj.filter(
+                         (currency) => currency.type === "currency"
+                    );
 
-    setInput(e) {
-      let inputValue = e.target.value;
-      let r = (inputValue = parseFloat(inputValue));
+                    let [{ value: minus }] = currencyObj.filter(
+                         (sign) => sign.type === "minusSign"
+                    );
+                    this.amount = `${currency}${minus}${result
+                         .join("")
+                         .slice(2, result[result.length - 1]).trim()}`;
 
-      console.log(
-        "2- [SET INPUT] lo detecta el evento @input: INPUT VALUE:::>",
-        typeof inputValue,
-        inputValue,
-        typeof r,
-        r
-      );
-    },
+                    console.log("[MAIN] AMOUNT NEGATIVO :::>", this.amount);
+                    return this.amount;
+               }
 
-    currencyObject(amount) {
-      let currencyProps = new Intl.NumberFormat(
-        this.culture,
-        this.config
-      ).formatToParts(amount);
+               this.amount = result.join("");
+          },
 
-      console.log("3- CURRENCY PROPS::>> ", currencyProps);
+          setFocus(e) {
+               e.target.type = "number";
+               this.amount = Number(this.initialValue).toFixed(2);
+          },
 
-      return currencyProps;
-    },
-  },
+          setInput(e) {
+               let inputValue = e.target.value;
+               inputValue = parseFloat(inputValue);
+          },
+
+          currencyObject(amount) {
+               let currencyProps = new Intl.NumberFormat(
+                    this.culture,
+                    this.config
+               ).formatToParts(amount);
+
+               return currencyProps;
+          },
+     },
 };
 </script>
 
 <style>
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+     -webkit-appearance: none;
+     margin: 0;
 }
 
 input[type="number"] {
-  -moz-appearance: textfield;
-  height: 3rem;
+     -moz-appearance: textfield;
+     height: 3rem;
 }
 input {
-  height: 3rem;
-  font-size: 2rem;
-  border-radius: 0.25rem;
+     height: 3rem;
+     font-size: 2rem;
+     border-radius: 0.25rem;
 }
 </style>
