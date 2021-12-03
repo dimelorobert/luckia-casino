@@ -28,18 +28,6 @@ export default {
           config: Object,
           culture: String,
      },
-
-     watch: {
-          // new = Number , old = String
-          amount(newAmount, oldAmount) {
-               console.log(
-                    "1- [WATCH] lo detecta el evento @focus AMOUNT:::>",
-                    typeof newAmount,
-                    newAmount
-               );
-          },
-     },
-
      methods: {
           main(e) {
                e.target.type = "text";
@@ -63,7 +51,8 @@ export default {
                     );
                     this.amount = `${currency}${minus}${result
                          .join("")
-                         .slice(2, result[result.length - 1]).trim()}`;
+                         .slice(2, result[result.length - 1])
+                         .trim()}`;
 
                     console.log("[MAIN] AMOUNT NEGATIVO :::>", this.amount);
                     return this.amount;
