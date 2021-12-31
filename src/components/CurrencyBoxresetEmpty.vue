@@ -2,10 +2,9 @@
      <div>
           <input
                class="o-input"
-               v-model="amount"
+               v-model="setInput"
                type="number"
                :placeholder="placeholder"
-               @input="amountNoFormatted"
                @focus="setFocus"
                @blur="main"
                autocomplete="off"
@@ -19,7 +18,7 @@ export default {
 
      data() {
           return {
-               noSignAmount: "",
+               initialValue: "",
                amount: null,
                placeholder: "0.00",
           };
@@ -29,12 +28,10 @@ export default {
           config: Object,
           culture: String,
      },
-
      watch: {
-          amount(newValue, oldValue) {
-               
-               console.log("new", newValue, "old", oldValue);
-          },
+          setInput(newValue, oldValue) {
+               console.log("new", newValue, "old", oldValue)
+          }
      },
      methods: {
           main(e) {
@@ -45,44 +42,48 @@ export default {
                     this.amount,
                     typeof this.amount
                );
-               this.amount = e.target.value;
-               this.noSignAmount = Number(this.amount);
 
-               if (this.amount === "0.00" || this.amount === "") {
-                    this.placeholder = "0.00";
-               }
-               
                let result = [];
-               let currencyObj = this.currencyObject(this.noSignAmount);
+               let currencyObj = this.currencyObject(this.amount);
+
+               console.log("CURRENCY OBJ::>", currencyObj);
                currencyObj.map((currency) => result.push(currency.value));
 
-               e.target.type = "text";
-               /*
-               this.amount = result.join("");*/
-               result.join("").slice(0, result.join("").length - 1)
-               console.log("Result:::>",result.join(""),"copia:::>", result.join("").slice(0, result.join("").length));
-               
-                e.target.value = result.join("");
+               if (
+                    currencyObj[0].value === "-" &&
+                    this.config.currency !== "EUR"
+               ) {
+                    let [{ value: currency }] = currencyObj.filter(
+                         (currency) => currency.type === "currency"
+                    );
 
+                    let [{ value: minus }] = currencyObj.filter(
+                         (sign) => sign.type === "minusSign"
+                    );
+
+                    this.amount = `${currency}${minus}${result
+                         .join("")
+                         .slice(2, result[result.length - 1])
+                         .trim()}`;
+
+                    return this.amount;
+               }
+
+               this.amount = result.join("");
           },
 
           amountNoFormatted(e) {
+               // avoid make a replace(",", ".")
+               e.target.type = "text";
                this.amount = e.target.value;
-               console.log("INPUT VALUE :::>", this.amount, typeof this.amount);
-               
-               return (this.amount = this.amount.replace(",", "."));
+               return this.amount.replace(",", ".");
           },
 
           setFocus(e) {
                this.placeholder = "";
-               //e.target.type = "number";
                this.amount = e.target.value;
-
-               if (this.amount === "0.00" || this.amount === "") {
-                    return this.amount = "";
-               }
-               
-               this.amount = Number(this.amount).toFixed(2);/**/
+               console.log("FOCUS :::>", this.amount);
+               return this.amount;
           },
 
           currencyObject(amount) {
