@@ -4,7 +4,6 @@
           <!-- <CurrencyBox :config="config" :culture="culture" /> -->
           <Login />
           <!-- <Registro /> -->
-          
      </div>
 </template>
 
@@ -26,7 +25,7 @@ export default {
           return {
                // Currency Box Config parameters
                config: {
-                    currency: "JPY",
+                    currency: "EUR",
                     currencyDisplay: "symbol",
                     currencySign: "standard",
                     maximumFractionDigits: 2,
@@ -35,7 +34,7 @@ export default {
                     style: "currency",
                     useGrouping: true,
                },
-               culture: "ja-JP",
+               culture: "es-ES",
 
                lineWidth: 3,
                lineColor: "#444",
@@ -44,8 +43,7 @@ export default {
                isCrop: false,
           };
      },
-     methods: {
-     }
+     methods: {},
 };
 </script>
 <style scoped>
@@ -55,6 +53,6 @@ export default {
      justify-content: center;
      align-items: center;
      height: 100vh;
-     background-color: rgb(171, 212, 199);
+     background-image: linear-gradient(to bottom, #7effac, #83f1a6, #87e2a0, #89d49a, #8ac695);
 }
 </style>

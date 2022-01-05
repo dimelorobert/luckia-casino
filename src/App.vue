@@ -21,6 +21,7 @@ export default {
 
 <style>
 @import "../node_modules/bulma/css/bulma.css";
+@import '../node_modules/bulma/sass/utilities/_all.sass';
 #app {
      font-family: Avenir, Helvetica, Arial, sans-serif;
      -webkit-font-smoothing: antialiased;

@@ -2,12 +2,10 @@
      <div>
           <input
                class="o-input"
-               v-model="amount"
-               type="number"
+               v-model.number="amount"
                :placeholder="placeholder"
-               @input="amountNoFormatted"
-               @focus="setFocus"
-               @blur="main"
+               @focus="rawAmount"
+               @blur="formatAmount"
                autocomplete="off"
           />
      </div>
@@ -19,7 +17,7 @@ export default {
 
      data() {
           return {
-               noSignAmount: "",
+               initialValue: null,
                amount: null,
                placeholder: "0.00",
           };
@@ -29,75 +27,43 @@ export default {
           config: Object,
           culture: String,
      },
-
-     watch: {
-          amount(newValue, oldValue) {
-               
-               console.log("new", newValue, "old", oldValue);
-          },
-     },
      methods: {
-          main(e) {
-               console.log(
-                    "TARGET VALUE :::>",
-                    e.target.value,
-                    typeof e.target.value,
-                    this.amount,
-                    typeof this.amount
-               );
-               this.amount = e.target.value;
-               this.noSignAmount = Number(this.amount);
-
-               if (this.amount === "0.00" || this.amount === "") {
-                    this.placeholder = "0.00";
-               }
-               
-               let result = [];
-               let currencyObj = this.currencyObject(this.noSignAmount);
-               currencyObj.map((currency) => result.push(currency.value));
-
+          formatAmount(e) {
                e.target.type = "text";
-               /*
-               this.amount = result.join("");*/
-               result.join("").slice(0, result.join("").length - 1)
-               console.log("Result:::>",result.join(""),"copia:::>", result.join("").slice(0, result.join("").length));
-               
-                e.target.value = result.join("");
-
-          },
-
-          amountNoFormatted(e) {
-               this.amount = e.target.value;
-               console.log("INPUT VALUE :::>", this.amount, typeof this.amount);
-               
-               return (this.amount = this.amount.replace(",", "."));
-          },
-
-          setFocus(e) {
-               this.placeholder = "";
-               //e.target.type = "number";
-               this.amount = e.target.value;
-
-               if (this.amount === "0.00" || this.amount === "") {
-                    return this.amount = "";
+               this.initialValue = this.amount;
+               let result = [],
+                    exPos = 1;
+               let currencyObj = this.formatterCall();
+               currencyObj.map(({ value }) => result.push(value));
+               let [{ value: currency }] = currencyObj.filter(
+                    (currency) => currency.type === "currency"
+               );
+               if (result[exPos] != currency) {
+                    this.amount = result.join("");
+                    return;
                }
-               
-               this.amount = Number(this.amount).toFixed(2);/**/
+               this.amount = `${currency}${result
+                    .join("")
+                    .replace(currency, "")}`;
           },
 
-          currencyObject(amount) {
-               let currencyProps = new Intl.NumberFormat(
+          rawAmount(e) {
+               e.target.type = "number";
+               this.amount = this.initialValue
+                    ? Number(this.initialValue).toFixed(2)
+                    : (this.amount = null);
+          },
+          formatterCall() {
+               return new Intl.NumberFormat(
                     this.culture,
                     this.config
-               ).formatToParts(amount);
-
-               return currencyProps;
+               ).formatToParts(this.amount);
           },
      },
 };
 </script>
 
-<style scoped>
+<style>
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
      -webkit-appearance: none;
@@ -106,5 +72,10 @@ input[type="number"]::-webkit-outer-spin-button {
 
 input[type="number"] {
      -moz-appearance: textfield;
+}
+input {
+     height: 3rem;
+     font-size: 2rem;
+     border-radius: 0.25rem;
 }
 </style>

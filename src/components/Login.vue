@@ -9,31 +9,29 @@
                     />
                </div>
                <div class="field width-xs">
-                    <label class="label">Email</label>
+                    <label class="label mod-label">email</label>
                     <div class="control has-icons-left">
                          <input
-                              class="input"
+                              class="input mod-input"
                               type="email"
                               :placeholder="placeholder"
                          />
                          <span class="icon is-small is-left">
-                              <i class="fas fa-user"></i>
-
+                              <i class="fas fa-user mod-icon"></i>
                          </span>
                     </div>
                </div>
 
                <div class="field">
-                    <label class="label">Password</label>
+                    <label class="label mod-label">password</label>
                     <div class="control has-icons-left">
                          <input
-                              class="input"
+                              class="input mod-input"
                               type="password"
                               :placeholder="placeholder"
                          />
                          <span class="icon is-small is-left">
-                              <i class="fas fa-key"></i>
-                              
+                              <i class="fas fa-key mod-icon"></i>
                          </span>
                     </div>
                </div>
@@ -43,10 +41,10 @@
                          button
                          is-primary
                          animate__animated animate__pulse
-                         mod-btn-color
+                         mod-btn
                     "
                >
-                    Iniciar Sesión
+                    Iniciar sesión
                </button>
           </form>
      </div>
@@ -63,25 +61,46 @@ export default {
 </script>
 
 <style scoped>
-@media only screen and (max-width: 767px) {
-     .login {
-          margin-bottom: 3rem;
-     }
-     .logo {
-          width: 155px;
-     }
+.login {
+     margin-bottom: 3rem;
+}
+.mod-box {
+     box-shadow: none;
+     background: transparent;
+     border-radius: 0;
+}
 
+.logo {
+     width: 155px;
+}
+
+.mod-input {
+     background: transparent;
+     border-right: 0;
+     border-left: 0;
+     border-top: 0;
+     border-bottom: 2px solid white;
+     border-radius: 1rem;
+}
+
+.mod-btn {
+     background-color: rgba(255, 75, 30, 0.904) !important;
+     border-radius: 1rem;
+}
+
+.mod-label {
+     color: #ecf8ef;
+     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+     font-weight: 400;
+}
+
+.mod-icon {
+     color: rgb(48, 78, 61);
+}
+
+@media only screen and (min-width: 1024px) {
      .mod-box {
-          box-shadow: none;
-          border-radius: 0;
-          background: transparent;
-     }
-     .width-xs {
-          width: calc(100vw - 3rem - 3rem);
-     }
-
-     .mod-btn-color {
-          background-color: rgba(255, 75, 30, 0.904) !important;
+          width: 512px;
      }
 }
 </style>
