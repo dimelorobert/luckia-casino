@@ -4,26 +4,27 @@
                <div class="field">
                     <img
                          class="logo animate__animated animate__pulse"
-                         src="../assets/beils-white.png"
+                         src="../assets/beils-green.png"
                          alt="Logo Beils Beauty Bar"
+                         preload="lazy"
                     />
                </div>
                <div class="field width-xs">
-                    <label class="label mod-label">email</label>
+                    <label class="label mod-label">Email</label>
                     <div class="control has-icons-left">
                          <input
                               class="input mod-input"
                               type="email"
                               :placeholder="placeholder"
                          />
-                         <span class="icon is-small is-left">
+                         <p class="icon is-small is-left mod-icon-cont">
                               <i class="fas fa-user mod-icon"></i>
-                         </span>
+                         </p>
                     </div>
                </div>
 
                <div class="field">
-                    <label class="label mod-label">password</label>
+                    <label class="label mod-label">Password</label>
                     <div class="control has-icons-left">
                          <input
                               class="input mod-input"
@@ -35,8 +36,9 @@
                          </span>
                     </div>
                </div>
-
-               <button
+               <a href="#" class="nav-link mod-link"><span class="icon"><i class="fas fa-question-circle"></i></span>¿Olvidaste la contraseña?</a>
+               
+                    <button
                     class="
                          button
                          is-primary
@@ -46,6 +48,7 @@
                >
                     Iniciar sesión
                </button>
+             
           </form>
      </div>
 </template>
@@ -64,6 +67,7 @@ export default {
 .login {
      margin-bottom: 3rem;
 }
+
 .mod-box {
      box-shadow: none;
      background: transparent;
@@ -74,33 +78,65 @@ export default {
      width: 155px;
 }
 
+
 .mod-input {
-     background: transparent;
-     border-right: 0;
-     border-left: 0;
-     border-top: 0;
-     border-bottom: 2px solid white;
-     border-radius: 1rem;
+     background: #ededed;
+     border: none;
+     border-radius: 1.5rem;
+}
+
+.mod-input:focus {
+     padding-left: 2.5rem;
+    outline: none;
+    border:none;
+    box-shadow: 0 0 10px #88b6a7;
+}
+
+.mod-icon-cont{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: fit-content;
 }
 
 .mod-btn {
-     background-color: rgba(255, 75, 30, 0.904) !important;
-     border-radius: 1rem;
+     background-color: #88b6a7;/*#F4AC9E;*/
+     border-radius: 1.5rem;
+     display: flex;
+     width: 100%;
+     font-weight: 700;
+     margin-top: 1rem;
 }
 
 .mod-label {
-     color: #ecf8ef;
+     color: #527c6f;
      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
      font-weight: 400;
 }
 
 .mod-icon {
-     color: rgb(48, 78, 61);
+     display: none;
+     font-size: 1.2rem;
+     color: #BCCFC9;
 }
 
-@media only screen and (min-width: 1024px) {
+.mod-link {
+     color: #527c6f;
+}
+
+
+@media only screen and (min-width: 768px) {
      .mod-box {
           width: 512px;
+     }
+
+     .mod-input {
+               height: 3rem;
+     }
+
+     .mod-icon {
+          display: block;
+
      }
 }
 </style>
