@@ -1,235 +1,107 @@
 <template>
-     <div class="registro">
-          <form class="box mod-xs">
-               <br />
-               <div class="field">
+     <form class="box mod-box">
+          <!-- <div class="field">
                     <img
                          class="logo"
                          src="../assets/innovapro.png"
                          alt="Logo Beils Beauty Bar"
                     />
-               </div>
-               <h3 class="title is-3">Nueva ficha</h3>
-               <div class="field">
-                    <div class="control">
-                         <label class="label">Nombre</label>
-                         <input
-                              class="input"
-                              type="text"
-                              :placeholder="placeholder"
-                         />
-                    </div>
-               </div>
-               <div class="field">
-                    <div class="control">
-                         <label class="label">Apellidos</label>
-                         <input
-                              class="input"
-                              type="text"
-                              :placeholder="placeholder"
-                         />
-                    </div>
-               </div>
-               <div class="field">
-                    <div class="control">
-                         <label class="radio">
-                              <input type="radio" name="answer" />
-                              Hombre
-                         </label>
-                         <label class="radio">
-                              <input type="radio" name="answer" />
-                              Mujer
-                         </label>
-                    </div>
-               </div>
-               <div class="field">
-                    <label class="label">Fecha de nacimiento</label>
-                    <div class="control cont-xs">
-                         <div class="select">
-                              <select>
-                                   <option>01</option>
-                                   <option>02</option>
-                                   <option>03</option>
-                                   <option>04</option>
-                              </select>
-                         </div>
-
-                         <div class="select">
-                              <select>
-                                   <option>01</option>
-                                   <option>02</option>
-                                   <option>03</option>
-                                   <option>04</option>
-                                   <option>05</option>
-                                   <option>06</option>
-                                   <option>07</option>
-                                   <option>08</option>
-                                   <option>09</option>
-                                   <option>10</option>
-                                   <option>11</option>
-                                   <option>12</option>
-                              </select>
-                         </div>
-
-                         <div class="select">
-                              <select>
-                                   <option>1990</option>
-                                   <option>1991</option>
-                                   <option>1992</option>
-                                   <option>1993</option>
-                              </select>
-                         </div>
-                    </div>
-               </div>
-
-               <div class="field">
-                    <div class="control">
-                         <label class="label">Dirección</label>
-                         <input
-                              class="input"
-                              type="text"
-                              :placeholder="placeholder"
-                         />
-                    </div>
-               </div>
-               <div class="field">
-                    <div class="control">
-                         <label class="label">Telefono</label>
-                         <input
-                              class="input"
-                              type="text"
-                              :placeholder="placeholder"
-                         />
-                    </div>
-               </div>
-               <div class="field">
-                    <label class="label">Email</label>
-                    <div class="control">
-                         <input
-                              class="input"
-                              type="email"
-                              :placeholder="placeholder"
-                         />
-                    </div>
-               </div>
-               <div class="field">
-                    <div class="control">
-                         <label class="radio">
-                              <input type="radio" name="answer" />
-                              D.N.I
-                         </label>
-                         <label class="radio">
-                              <input type="radio" name="answer" />
-                              Pasaporte
-                         </label>
-                         <label class="radio">
-                              <input type="radio" name="answer" />
-                              N.I.E
-                         </label>
-                    </div>
-               </div>
-               <div class="field">
-                    <label class="label">Numero Documento</label>
-                    <div class="control">
-                         <input
-                              class="input"
-                              type="text"
-                              :placeholder="placeholder"
-                         />
-                    </div>
-               </div>
-
-               <!-- <div class="field">
-                    <div class="file has-name is-right">
-                         <label class="file-label">
-                              <input
-                                   class="file-input"
-                                   type="file"
-                                   name="resume"
-                              />
-                              <span class="file-cta">
-                                   <span class="file-icon">
-                                        <i class="fas fa-upload"></i>
-                                   </span>
-                                   <span class="file-label"> Foto D.N.I </span>
-                              </span>
-                              <span class="file-name width-xs">
-                                   Screenshot.png
-                              </span>
-                         </label>
-                    </div>
-               </div>
-
-               <div class="field">
-                    <div class="file has-name is-right">
-                         <label class="file-label">
-                              <input
-                                   class="file-input"
-                                   type="file"
-                                   name="resume"
-                              />
-                              <span class="file-cta">
-                                   <span class="file-icon">
-                                        <i class="fas fa-upload"></i>
-                                   </span>
-                                   <span class="file-label">
-                                        Foto Cliente
-                                   </span>
-                              </span>
-                              <span class="file-name width-xs">
-                                   Filename-2345643.png
-                              </span>
-                         </label>
-                    </div>
-               </div>
-
-               <div class="field">
-                    <div class="file has-name is-right">
-                         <label class="file-label">
-                              <input
-                                   class="file-input"
-                                   type="file"
-                                   name="resume"
-                              />
-                              <span class="file-cta">
-                                   <span class="file-icon">
-                                        <i class="fas fa-upload"></i>
-                                   </span>
-                                   <span class="file-label">
-                                        Proteccion datos
-                                   </span>
-                              </span>
-                              <span class="file-name width-xs">
-                                   Doc firmado
-                              </span>
-                         </label>
-                    </div>
-               </div>
-
-               <div class="field">
-                    <div class="file has-name is-right">
-                         <label class="file-label">
-                              <input
-                                   class="file-input"
-                                   type="file"
-                                   name="resume"
-                              />
-                              <span class="file-cta">
-                                   <span class="file-icon">
-                                        <i class="fas fa-upload"></i>
-                                   </span>
-                                   <span class="file-label">
-                                        Consentimiento
-                                   </span>
-                              </span>
-                              <span class="file-name width-xs"> file.png </span>
-                         </label>
-                    </div>
                </div> -->
 
-               <button class="button is-primary">Crear Ficha</button>
-          </form>
-     </div>
+        
+               <div class="field">
+                    <div class="control mod-control">
+                         <label class="label mod-label"
+                              >Nombre
+                              <input
+                                   class="input mod-input"
+                                   type="text"
+                                   :placeholder="placeholder"
+                         /></label>
+                    </div>
+               </div>
+               <div class="field">
+                    <div class="control mod-control">
+                         <label class="label mod-label"
+                              >Apellidos
+                              <input
+                                   class="input mod-input"
+                                   type="text"
+                                   :placeholder="placeholder"
+                         /></label>
+                    </div>
+               </div>
+     
+
+          
+               <div class="field">
+                    <div class="control mod-control">
+                         <label class="label mod-label"
+                              >Dirección
+                              <input
+                                   class="input mod-input"
+                                   type="text"
+                                   :placeholder="placeholder"
+                                   autocomplete="off"
+                         /></label>
+                    </div>
+               <div class="field">
+                    <div class="control">
+                         <label class="label mod-label"
+                              >Telefono
+                              <input
+                                   class="input mod-input"
+                                   type="text"
+                                   :placeholder="placeholder"
+                                   autocomplete="off"
+                         /></label>
+                    </div>
+               </div>
+        
+
+         
+               <div class="field">
+                    <div class="control mod-control">
+                         <label class="label mod-label"
+                              >Email
+                              <input
+                                   class="input mod-input"
+                                   type="email"
+                                   :placeholder="placeholder"
+                         /></label>
+                    </div>
+               </div>
+
+               <div class="field">
+                    <div class="control mod-control">
+                         <label class="label mod-label"
+                              >DNI
+                              <input
+                                   class="input mod-input"
+                                   type="text"
+                                   :placeholder="placeholder"
+                                   autocomplete="off"
+                         /></label>
+                    </div>
+               </div>
+         
+
+         
+               <div class="field">
+                    <label for="birthdate" class="label mod-label"
+                         >Fecha de nacimiento
+                         <input
+                              class="input mod-input"
+                              type="date"
+                              name="birthdate"
+                              id="birthdate"
+                    /></label>
+               </div>
+       
+          </div>
+
+          <button class="button is-primary mod-btn">Crear Nueva Ficha</button>
+     </form>
 </template>
 
 <script>
@@ -243,5 +115,65 @@ export default {
 </script>
 
 <style scoped>
+.mod-box {
+     background: transparent;
+     box-shadow: none;
+     border-radius: 0;
+     padding: 1rem;
+     background: #f7f7f7;
+}
 
+.logo {
+     width: 155px;
+}
+
+.mod-input {
+     text-align: center;
+     background: #ededed;
+     border: none;
+     border-radius: 1.5rem;
+}
+
+.mod-input:focus {
+     outline: none;
+     border: none;
+     box-shadow: 0 0 10px #88b6a7;
+}
+
+.mod-btn {
+     background-color: #88b6a7; /*#F4AC9E;*/
+     border-radius: 1.5rem;
+     display: flex;
+     width: 100%;
+     font-weight: 700;
+}
+
+.mod-label {
+     color: #527c6f;
+     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+     font-weight: 400;
+     position: relative;
+     top: 1rem
+}
+
+.mod-icon {
+     display: none;
+     font-size: 1.2rem;
+     color: #bccfc9;
+}
+
+.mod-link {
+     color: #527c6f;
+}
+
+.mod-control {
+     margin: 1rem auto;
+}
+
+@media only screen and (min-width: 768px) {
+     .container {
+          display: flex;
+          justify-content: space-evenly;
+     }
+}
 </style>

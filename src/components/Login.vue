@@ -10,13 +10,15 @@
                     />
                </div>
                <div class="field width-xs">
-                    <label class="label mod-label">Email</label>
+                    
                     <div class="control has-icons-left">
+                         <label class="label mod-label">Email
                          <input
                               class="input mod-input"
                               type="email"
                               :placeholder="placeholder"
-                         />
+                              autocomplete="off"
+                         /></label>
                          <p class="icon is-small is-left mod-icon-cont">
                               <i class="fas fa-user mod-icon"></i>
                          </p>
@@ -24,13 +26,14 @@
                </div>
 
                <div class="field">
-                    <label class="label mod-label">Password</label>
+                    
                     <div class="control has-icons-left">
+                         <label class="label mod-label">Password
                          <input
                               class="input mod-input"
                               type="password"
                               :placeholder="placeholder"
-                         />
+                         /></label>
                          <span class="icon is-small is-left">
                               <i class="fas fa-key mod-icon"></i>
                          </span>
@@ -86,17 +89,9 @@ export default {
 }
 
 .mod-input:focus {
-     padding-left: 2.5rem;
     outline: none;
     border:none;
     box-shadow: 0 0 10px #88b6a7;
-}
-
-.mod-icon-cont{
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     height: fit-content;
 }
 
 .mod-btn {
