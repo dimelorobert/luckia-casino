@@ -8,59 +8,47 @@
      </div>
 </template>
 <script>
-
 export default {
-  data() {
-    return {
-
-    }
-  },
-  
-}
+     data() {
+          return {};
+     },
+};
 </script>
 
 <style>
-@import "../node_modules/bulma/css/bulma.css";
-@import '../node_modules/bulma/sass/utilities/_all.sass';
-
+/* @import "../node_modules/bulma/css/bulma.css";
+@import '../node_modules/bulma/sass/utilities/_all.sass'; */
 * {
+     margin: 0;
+     padding: 0;
      box-sizing: border-box;
-     scrollbar-width: none;
 }
 
-*::-webkit-scrollbar {
-  display: none;
-}
-
-body{
-     background-color: #f7f7f7;
+body {
      position: relative;
      scroll-behavior: smooth;
 }
 
+input {
+   height: 1rem;
+}
+
 #app {
-     display: flex;
-     justify-content: center;
-     align-items: center;
      font-family: Avenir, Helvetica, Arial, sans-serif;
      -webkit-font-smoothing: antialiased;
      -moz-osx-font-smoothing: grayscale;
-     text-align: center;
      color: #2c3e50;
-     height: 100vh;
-     background-color: #f7f7f7;
-} 
-
-#nav {
-     padding: 30px;
+     
 }
 
-#nav a {
-     font-weight: bold;
-     color: #2c3e50;
-}
+@media only screen and (min-width: 1024px) {
+   * {
+     box-sizing: border-box;
+     scrollbar-width: none;
+   }
 
-#nav a.router-link-exact-active {
-     color: #42b983;
+   *::-webkit-scrollbar {
+      display: none;
+   }
 }
 </style>

@@ -1,7 +1,5 @@
 <template>
      <div class="home">
-          <img src="../assets/spa.jpg" alt="" srcset="">
-          <h2 class="title is-2 mod-title">Nueva Ficha</h2>
           <!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
           <!-- <CurrencyBox :config="config" :culture="culture" /> -->
           <!-- <Login /> -->
@@ -50,19 +48,10 @@ export default {
 </script>
 <style scoped>
 .home {
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
-     /* background-image: url("../assets/spa.jpg");
-     background-size: 412px;
-     background-repeat: no-repeat; */
-     background: #f7f7f7;
-     width: 100%;
+     /* background-image: url("../assets/beils-pattern.png"); 
+     background-size: 450px;*/
+     opacity: 40%;
+     background-repeat: repeat;
      height: 100vh;
-} 
-.mod-title {
-    position: relative;
-    bottom: 1.5rem;
-    text-align: center;
 }
 </style>
