@@ -109,14 +109,17 @@ body {
 	margin: 0 0.35rem;
 }
 
-.accordion .accordion__slide:first-child {
-	width: calc(100% * 2);
+.accordion__slide:first-child {
+	width: 200%;
 	filter: grayscale(0%);
 }
 
-.accordion__slide:hover {
-	width: calc(100% * 2);
-	filter: grayscale(0%);
+.accordion:hover .accordion__slide {
+	width: 100%;
+}
+
+.accordion .accordion__slide:hover {
+	width: 200%;
 }
 
 .accordion__image {
