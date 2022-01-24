@@ -44,11 +44,11 @@ body {
 @media only screen and (min-width: 1024px) {
 	* {
 		box-sizing: border-box;
-		scrollbar-width: none;
+		/* scrollbar-width: none; */
 	}
 
-	*::-webkit-scrollbar {
+	/* *::-webkit-scrollbar {
 		display: none;
-	}
+	} */
 }
 </style>

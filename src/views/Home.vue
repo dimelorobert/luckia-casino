@@ -4,7 +4,9 @@
 		<!-- <CurrencyBox :config="config" :culture="culture" /> -->
 		<!-- <Login /> -->
 		<!-- <Registro :user="user" /> -->
+		<MenuCustom />
 		<accordion />
+		<Bio />
 	</div>
 </template>
 
@@ -16,6 +18,9 @@ import CurrencyBox from "@/components/CurrencyBox.vue";
 import Login from "@/components/Login.vue";
 import Registro from "@/components/Registro.vue";
 import Accordion from "../components/Accordion.vue";
+import MenuCustom from "../components/MenuCustom.vue";
+import Bio from "../components/Bio.vue";
+import Contact from "../components/Contact.vue";
 
 export default {
 	name: "Home",
@@ -25,6 +30,9 @@ export default {
 		Login,
 		Registro,
 		Accordion,
+		MenuCustom,
+		Bio,
+		Contact,
 	},
 	data() {
 		return {
@@ -69,8 +77,10 @@ export default {
 <style scoped>
 .home {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	height: 100vh;
+	height: 100%;
+	background: #0a0a0a;
 }
 </style>
