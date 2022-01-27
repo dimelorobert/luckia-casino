@@ -4,9 +4,9 @@
 		<!-- <CurrencyBox :config="config" :culture="culture" /> -->
 		<!-- <Login /> -->
 		<!-- <Registro :user="user" /> -->
-		<!-- <MenuCustom /> -->
+		<MenuCustom />
 		<!-- <Bio /> -->
-		<!-- <accordion /> -->
+		<accordion />
 		<VideoShort />
 		<!-- <Score /> -->
 		<!-- <Link :href="href" :text="text" :style="styles" /> -->

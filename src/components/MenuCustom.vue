@@ -1,7 +1,7 @@
 <template>
 	<nav class="menu">
 		<div class="menu__logo-container">
-			<h1 class="menu__logo-title">Luis Quintero</h1>
+			<h1 class="menu__logo-title">{{ title }}</h1>
 		</div>
 		<div class="menu__link-container">
 			<a href="#" class="menu__link">Home</a>
@@ -15,11 +15,34 @@
 <script>
 export default {
 	name: "MenuCustom",
+	data() {
+		return {
+			title: "",
+		};
+	},
+	computed: {
+		setTitle(e) {
+			console.log("screen:::>",e,  window.screen);
+		},
+	},
+	watch: {
+		title(screenMobile) {
+
+			if (screenMobile <= "512") {
+				this.title = "LQ10";
+				console.log("Entro::>", screenMobile, this.title );
+			} else {
+
+				this.title = "Luis Quintero";
+				console.log("No Entro:::>", this.title);
+			}
+		},
+	},
 };
 </script>
 
 <style scoped>
-@import url('../../public/font/stylesheet.css');
+@import url("../../public/font/stylesheet.css");
 
 .menu {
 	display: flex;
@@ -54,12 +77,17 @@ export default {
 	font-size: 14px;
 }
 
-
 .menu__logo-title {
 	display: inline-flex;
 	font-family: "Poppins";
 	font-weight: 600;
 	font-style: normal;
 	font-display: swap;
+}
+
+@media only screen and (max-width: 512px) {
+	.menu__link-container {
+		display: none;
+	}
 }
 </style>
