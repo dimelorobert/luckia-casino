@@ -1,77 +1,47 @@
 <template>
 	<div class="accordion">
 		<article class="accordion__slide">
-			<img class="accordion__image" src="../assets/lu.jpg" alt="" />
+			<img class="accordion__image" src="../assets/lu2.jpg" alt="" />
 
 			<a class="accordion__link" href="#"
 				><h3 class="accordion__title">Titulo Luisito H3</h3>
-				<p class="accordion__description">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
-					dolores voluptates rem ea eaque sunt nulla ut dolorum asperiores
-					aut eius ipsa obcaecati natus, earum error consequatur eum! Vero,
-					totam?
-				</p></a
-			>
+				<p class="accordion__description">{{ descriptionLimiter }}</p>
+				{{ readMore }}</a>
 		</article>
 		<article class="accordion__slide">
-			<img class="accordion__image" src="../assets/lu2.jpg" alt="" />
+			<img class="accordion__image" src="../assets/lu4.jpg" alt="" />
 			<a class="accordion__link" href="#"
 				><h3 class="accordion__title">Titulo Luisito H3</h3>
-				<p class="accordion__description">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
-					dolores voluptates rem ea eaque sunt nulla ut dolorum asperiores
-					aut eius ipsa obcaecati natus, earum error consequatur eum! Vero,
-					totam?
-				</p></a
-			>
+				<p class="accordion__description">{{ descriptionLimiter }}</p>
+				{{ readMore }}</a>
 		</article>
 		<article class="accordion__slide">
 			<img class="accordion__image" src="../assets/lu1.jpg" alt="" />
 			<a class="accordion__link" href="#"
 				><h3 class="accordion__title">Titulo Luisito H3</h3>
-				<p class="accordion__description">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
-					dolores voluptates rem ea eaque sunt nulla ut dolorum asperiores
-					aut eius ipsa obcaecati natus, earum error consequatur eum! Vero,
-					totam?
-				</p></a
-			>
+				<p class="accordion__description">{{ descriptionLimiter }}</p>
+				{{ readMore }}</a>
 		</article>
 		<article class="accordion__slide">
 			<img class="accordion__image" src="../assets/lu3.jpg" alt="" />
 			<a class="accordion__link" href="#"
 				><h3 class="accordion__title">Titulo Luisito H3</h3>
-				<p class="accordion__description">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
-					dolores voluptates rem ea eaque sunt nulla ut dolorum asperiores
-					aut eius ipsa obcaecati natus, earum error consequatur eum! Vero,
-					totam?
-				</p></a
-			>
+				<p class="accordion__description">{{ descriptionLimiter }}</p>
+				{{ readMore }}</a>
 		</article>
 		<article class="accordion__slide">
 			<img class="accordion__image" src="../assets/lu.jpg" alt="" />
 			<a class="accordion__link" href="#"
 				><h3 class="accordion__title">Titulo Luisito H3</h3>
-				<p class="accordion__description">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
-					dolores voluptates rem ea eaque sunt nulla ut dolorum asperiores
-					aut eius ipsa obcaecati natus, earum error consequatur eum! Vero,
-					totam?
-				</p></a
-			>
+				<p class="accordion__description">{{ descriptionLimiter }}</p>
+				{{ readMore }}</a>
 		</article>
 		<article class="accordion__slide">
-			<img class="accordion__image" src="../assets/lu.jpg" alt="" />
+			<img class="accordion__image" src="../assets/lu5.jpg" alt="" />
 			<a class="accordion__link" href="#"
 				><h3 class="accordion__title">Titulo Luisito H3</h3>
-				<p class="accordion__description">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
-					dolores voluptates rem ea eaque sunt nulla ut dolorum asperiores
-					aut eius ipsa obcaecati natus, earum error consequatur eum! Vero,
-					totam?
-				</p></a
-			>
+				<p class="accordion__description">{{ descriptionLimiter }}</p>
+				{{ readMore }}</a>
 		</article>
 	</div>
 </template>
@@ -80,21 +50,30 @@
 export default {
 	name: "Accordion",
 	data() {
-		return {};
+		return {
+			description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
+					dolores voluptates rem ea eaque sunt nulla ut dolorum asperiores
+					aut eius ipsa obcaecati natus, earum error consequatur eum! Vero,
+					totam?`,
+			readMore: "Seguir leyendo ➔",
+		};
+	},
+	computed: {
+		descriptionLimiter() {
+			return this.description.slice(0, 220);
+		},
 	},
 };
 </script>
 
 <style scoped>
-body {
-	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
+@import url('../../public/font/stylesheet.css');
 
 .accordion {
 	display: flex;
 	height: 80vh;
-	background: #0a0a0a;
-	margin: 2rem auto;
+	gap: 0.75rem;
+	background: #000101;
 }
 
 .accordion__slide {
@@ -106,7 +85,7 @@ body {
 	max-width: max-content;
 	width: 100%;
 	transition: 0.6s all ease-in-out;
-	margin: 0 0.35rem;
+	background: #000101;
 }
 
 .accordion__slide:first-child {
@@ -120,6 +99,7 @@ body {
 
 .accordion .accordion__slide:hover {
 	width: 200%;
+	filter: grayscale(0%);
 }
 
 .accordion__image {
@@ -152,8 +132,12 @@ body {
 }
 
 .accordion__title {
+	font-size: 1.6rem;
 	text-align: left;
 	margin: 1rem 0;
+	font-family: "Poppins";
+	font-weight: 600;
+	font-display: swap;
 }
 
 .accordion__description {
@@ -161,5 +145,7 @@ body {
 	max-width: max-content;
 	margin: 0;
 	line-height: 1.5rem;
+	font-family: "Poppins";
+	font-weight: normal;
 }
 </style>

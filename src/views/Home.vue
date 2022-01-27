@@ -4,9 +4,13 @@
 		<!-- <CurrencyBox :config="config" :culture="culture" /> -->
 		<!-- <Login /> -->
 		<!-- <Registro :user="user" /> -->
-		<MenuCustom />
-		<accordion />
-		<Bio />
+		<!-- <MenuCustom /> -->
+		<!-- <Bio /> -->
+		<!-- <accordion /> -->
+		<VideoShort />
+		<!-- <Score /> -->
+		<!-- <Link :href="href" :text="text" :style="styles" /> -->
+		<!-- <Button :text="textBtn" :type="typeBtn" /> -->
 	</div>
 </template>
 
@@ -17,10 +21,14 @@ import HelloWorld from "@/components/HelloWorld.vue";
 import CurrencyBox from "@/components/CurrencyBox.vue";
 import Login from "@/components/Login.vue";
 import Registro from "@/components/Registro.vue";
-import Accordion from "../components/Accordion.vue";
-import MenuCustom from "../components/MenuCustom.vue";
-import Bio from "../components/Bio.vue";
-import Contact from "../components/Contact.vue";
+import Accordion from "@/components/Accordion.vue";
+import MenuCustom from "@/components/MenuCustom.vue";
+import Bio from "@/components/Bio.vue";
+import Contact from "@/components/Contact.vue";
+import Score from "@/components/Score.vue";
+import VideoShort from "@/components/VideoShort.vue";
+import Link from "@/components/Link.vue";
+import Button from "@/components/Button.vue";
 
 export default {
 	name: "Home",
@@ -33,6 +41,10 @@ export default {
 		MenuCustom,
 		Bio,
 		Contact,
+		Score,
+		VideoShort,
+		Link,
+		Button,
 	},
 	data() {
 		return {
@@ -46,6 +58,19 @@ export default {
 				birthdate: "",
 				genre: "",
 			},
+
+			/* Config  Link*/
+			href: "https://google.es",
+			text: "hola marola",
+			styles: {
+				color: "#FFF",
+				fontSize: "1rem",
+				textDecoration: "none",
+			},
+			/* Config Button*/
+			textBtn: "Comprar",
+			typeBtn: "reset",
+
 			// Currency Box Config parameters
 			config: {
 				currency: "EUR",
@@ -76,11 +101,10 @@ export default {
 </script>
 <style scoped>
 .home {
+	align-items: center;
+	background: #000101;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: center;
-	height: 100%;
-	background: #0a0a0a;
 }
 </style>

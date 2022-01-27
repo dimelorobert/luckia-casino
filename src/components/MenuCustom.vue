@@ -19,14 +19,19 @@ export default {
 </script>
 
 <style scoped>
+@import url('../../public/font/stylesheet.css');
+
 .menu {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
 	width: 100%;
-	height: 60px;
-	background: #0a0a0a;
+	height: 80px;
+	background: #000101;
+	position: sticky;
+	top: 0;
 	color: #fff;
+	z-index: 99;
 }
 
 .menu__logo-container {
@@ -42,9 +47,19 @@ export default {
 .menu__link {
 	color: #fff;
 	text-decoration: none;
+	font-family: "Poppins";
+	font-weight: normal;
+	font-weight: normal;
+	font-display: swap;
+	font-size: 14px;
 }
+
 
 .menu__logo-title {
 	display: inline-flex;
+	font-family: "Poppins";
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
 }
 </style>

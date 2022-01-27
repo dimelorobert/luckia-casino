@@ -1,14 +1,49 @@
 <template>
 	<div id="app">
-		<!-- <div id="nav">
-               <router-link to="/">Home</router-link> |
-               <router-link to="/about">About</router-link>
-          </div> -->
+		<!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
+		<!-- <CurrencyBox :config="config" :culture="culture" /> -->
+		<!-- <Login /> -->
+		<!-- <Registro :user="user" /> -->
+		<!-- <MenuCustom /> -->
+		<!-- <Bio /> -->
+		<!-- <accordion /> -->
+		<!-- <VideoShort /> -->
+		<!-- <Score /> -->
+		<!-- <Link :href="href" :text="text" :style="styles" /> -->
+		<!-- <Button :text="textBtn" :type="typeBtn" /> -->
 		<router-view />
 	</div>
 </template>
 <script>
+import HelloWorld from "@/components/HelloWorld.vue";
+import CurrencyBox from "@/components/CurrencyBox.vue";
+import Login from "@/components/Login.vue";
+import Registro from "@/components/Registro.vue";
+import Accordion from "@/components/Accordion.vue";
+import MenuCustom from "@/components/MenuCustom.vue";
+import Bio from "@/components/Bio.vue";
+import Contact from "@/components/Contact.vue";
+import Score from "@/components/Score.vue";
+import VideoShort from "@/components/VideoShort.vue";
+import Link from "@/components/Link.vue";
+import Button from "@/components/Button.vue";
+
 export default {
+	name: "App",
+	components: {
+		HelloWorld,
+		CurrencyBox,
+		Login,
+		Registro,
+		Accordion,
+		MenuCustom,
+		Bio,
+		Contact,
+		Score,
+		VideoShort,
+		Link,
+		Button,
+	},
 	data() {
 		return {};
 	},
@@ -20,9 +55,9 @@ export default {
 @import '../node_modules/bulma/sass/utilities/_all.sass'; */
 :root {
 	--green: #659082;
-	--greenh: #BCCFC9;
-	--white: ##FDFDFD;
-	--grey: #F1F1F1;
+	--greenh: #bccfc9;
+	--white: ##fdfdfd;
+	--grey: #f1f1f1;
 	--salmon: #f4ac9e;
 }
 
