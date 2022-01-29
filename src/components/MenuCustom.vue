@@ -8,6 +8,7 @@
 			<a href="#" class="menu__link">Gallery</a>
 			<a href="#" class="menu__link">Videos</a>
 			<a href="#" class="menu__link">Contact</a>
+			<img src="../assets/menu.svg" alt="Boton menu" class="menu__button" />
 		</div>
 	</nav>
 </template>
@@ -17,26 +18,44 @@ export default {
 	name: "MenuCustom",
 	data() {
 		return {
-			title: "",
+			title: "Luis Quintero",
+			screenWidth: "",
 		};
 	},
-	computed: {
-		setTitle(e) {
-			console.log("screen:::>",e,  window.screen);
-		},
-	},
 	watch: {
-		title(screenMobile) {
-
-			if (screenMobile <= "512") {
+		title() {
+			if (screen.width <= 767) {
 				this.title = "LQ10";
-				console.log("Entro::>", screenMobile, this.title );
-			} else {
+				console.log("hol::>", this.title);
+				return this.title;
+			}
 
+			if (screen.width >= 768) {
 				this.title = "Luis Quintero";
-				console.log("No Entro:::>", this.title);
+				console.log("añaña::>", this.title);
+				return this.title;
 			}
 		},
+	},
+	computed: {
+		setTitle() {
+			if (screen.width <= 767) {
+				this.title = "LQ10";
+				console.log("hol::>", this.title);
+				return this.title;
+			}
+		},
+	},
+	methods: {
+		detectorScreen() {
+			console.log("Screen size:::>", screen.width);
+		},
+	},
+	created() {
+		window.addEventListener("resize", this.detectorScreen);
+	},
+	destroyed() {
+		window.removeEventListener("resize", this.detectorScreen);
 	},
 };
 </script>
@@ -70,11 +89,16 @@ export default {
 .menu__link {
 	color: #fff;
 	text-decoration: none;
-	font-family: "Poppins";
-	font-weight: normal;
-	font-weight: normal;
+	font-family: 'Montserrat', sans-serif;/*"Poppins";*/
+	font-weight: 400;
 	font-display: swap;
-	font-size: 14px;
+	font-size: 15px;
+}
+
+.menu__button {
+	display: none;
+	width: 35px;
+	cursor: pointer;
 }
 
 .menu__logo-title {
@@ -85,9 +109,29 @@ export default {
 	font-display: swap;
 }
 
-@media only screen and (max-width: 512px) {
+@media only screen and (max-width: 767px) {
+	.menu__logo-container {
+		display: flex;
+		justify-content: space-around;
+	}
+
+	.menu__logo-container:nth-child(1) {
+		width: 80%;
+	}
+
+	.menu__logo-container:nth-child(2) {
+		width: 20%;
+	}
 	.menu__link-container {
+		justify-content: center;
+	}
+	.menu__link {
 		display: none;
+	}
+
+	.menu__button {
+		display: block;
+		filter: invert(100%);
 	}
 }
 </style>

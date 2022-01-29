@@ -4,10 +4,11 @@
 		<!-- <CurrencyBox :config="config" :culture="culture" /> -->
 		<!-- <Login /> -->
 		<!-- <Registro :user="user" /> -->
-		<MenuCustom />
+		<!-- <MenuCustom /> -->
+		<Slider class="h-slider" />
+		<!-- <Accordion class="h-accordion" /> -->
 		<!-- <Bio /> -->
-		<accordion />
-		<VideoShort />
+		<!-- <VideoShort /> -->
 		<!-- <Score /> -->
 		<!-- <Link :href="href" :text="text" :style="styles" /> -->
 		<!-- <Button :text="textBtn" :type="typeBtn" /> -->
@@ -29,6 +30,7 @@ import Score from "@/components/Score.vue";
 import VideoShort from "@/components/VideoShort.vue";
 import Link from "@/components/Link.vue";
 import Button from "@/components/Button.vue";
+import Slider from "@/components/Slider.vue";
 
 export default {
 	name: "Home",
@@ -45,6 +47,7 @@ export default {
 		VideoShort,
 		Link,
 		Button,
+		Slider,
 	},
 	data() {
 		return {
@@ -106,5 +109,24 @@ export default {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+}
+
+.h-slider {
+	display: none;
+}
+
+@media only screen and (max-width: 767px) {
+	.h-slider {
+		display: block;
+		
+	}
+
+	.slider-controller {
+		overflow: hidden;
+	}
+
+	.h-accordion {
+		display: none;
+	}
 }
 </style>

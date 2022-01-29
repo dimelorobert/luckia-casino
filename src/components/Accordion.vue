@@ -6,42 +6,48 @@
 			<a class="accordion__link" href="#"
 				><h3 class="accordion__title">Titulo Luisito H3</h3>
 				<p class="accordion__description">{{ descriptionLimiter }}</p>
-				{{ readMore }}</a>
+				{{ readMore }}</a
+			>
 		</article>
 		<article class="accordion__slide">
 			<img class="accordion__image" src="../assets/lu4.jpg" alt="" />
 			<a class="accordion__link" href="#"
 				><h3 class="accordion__title">Titulo Luisito H3</h3>
 				<p class="accordion__description">{{ descriptionLimiter }}</p>
-				{{ readMore }}</a>
+				{{ readMore }}</a
+			>
 		</article>
 		<article class="accordion__slide">
 			<img class="accordion__image" src="../assets/lu1.jpg" alt="" />
 			<a class="accordion__link" href="#"
 				><h3 class="accordion__title">Titulo Luisito H3</h3>
 				<p class="accordion__description">{{ descriptionLimiter }}</p>
-				{{ readMore }}</a>
+				{{ readMore }}</a
+			>
 		</article>
 		<article class="accordion__slide">
 			<img class="accordion__image" src="../assets/lu3.jpg" alt="" />
 			<a class="accordion__link" href="#"
 				><h3 class="accordion__title">Titulo Luisito H3</h3>
 				<p class="accordion__description">{{ descriptionLimiter }}</p>
-				{{ readMore }}</a>
+				{{ readMore }}</a
+			>
 		</article>
 		<article class="accordion__slide">
 			<img class="accordion__image" src="../assets/lu.jpg" alt="" />
 			<a class="accordion__link" href="#"
 				><h3 class="accordion__title">Titulo Luisito H3</h3>
 				<p class="accordion__description">{{ descriptionLimiter }}</p>
-				{{ readMore }}</a>
+				{{ readMore }}</a
+			>
 		</article>
 		<article class="accordion__slide">
 			<img class="accordion__image" src="../assets/lu5.jpg" alt="" />
 			<a class="accordion__link" href="#"
 				><h3 class="accordion__title">Titulo Luisito H3</h3>
 				<p class="accordion__description">{{ descriptionLimiter }}</p>
-				{{ readMore }}</a>
+				{{ readMore }}</a
+			>
 		</article>
 	</div>
 </template>
@@ -67,7 +73,7 @@ export default {
 </script>
 
 <style scoped>
-@import url('../../public/font/stylesheet.css');
+@import url("../../public/font/stylesheet.css");
 
 .accordion {
 	display: flex;

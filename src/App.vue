@@ -67,6 +67,10 @@ export default {
 	box-sizing: border-box;
 }
 
+html {
+	overflow: hidden;
+}
+
 body {
 	scroll-behavior: smooth;
 }
