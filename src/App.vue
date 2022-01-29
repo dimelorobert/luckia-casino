@@ -66,14 +66,14 @@ export default {
 	padding: 0;
 	box-sizing: border-box;
 }
-
+/* 
 html {
 	overflow: hidden;
 }
 
 body {
 	scroll-behavior: smooth;
-}
+} */
 
 #app {
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Avenir, Helvetica, Arial, sans-serif; */

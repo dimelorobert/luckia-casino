@@ -53,10 +53,6 @@ export default {
 	width: 100%;
 }
 
-.sponsor__video-container {
-	margin: auto 0;
-}
-
 .sponsor__video {
 	border: none;
 	filter: grayscale(75);
@@ -93,13 +89,13 @@ export default {
 }
 
 @media only screen and (max-width: 767px) {
-	* {
+	/* * {
 		scrollbar-width: none;
 	}
 
 	*::-webkit-scrollbar {
 		display: none;
-	}
+	} */
 
 	/* .sponsor__video {
 		width: fit-content;

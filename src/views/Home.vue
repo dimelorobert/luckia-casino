@@ -4,11 +4,11 @@
 		<!-- <CurrencyBox :config="config" :culture="culture" /> -->
 		<!-- <Login /> -->
 		<!-- <Registro :user="user" /> -->
-		<!-- <MenuCustom /> -->
-		<Slider class="h-slider" />
-		<!-- <Accordion class="h-accordion" /> -->
-		<!-- <Bio /> -->
-		<!-- <VideoShort /> -->
+		<MenuCustom />
+		<!-- <Slider class="h-slider" /> -->
+		<Accordion class="h-accordion" />
+		<VideoShort />
+		<Bio />
 		<!-- <Score /> -->
 		<!-- <Link :href="href" :text="text" :style="styles" /> -->
 		<!-- <Button :text="textBtn" :type="typeBtn" /> -->
@@ -111,7 +111,7 @@ export default {
 	justify-content: center;
 }
 
-.h-slider {
+/*.h-slider {
 	display: none;
 }
 
@@ -128,5 +128,5 @@ export default {
 	.h-accordion {
 		display: none;
 	}
-}
+}*/ 
 </style>

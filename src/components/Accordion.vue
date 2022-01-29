@@ -80,6 +80,7 @@ export default {
 	height: 80vh;
 	gap: 0.75rem;
 	background: #000101;
+	margin: 2rem 0;
 }
 
 .accordion__slide {

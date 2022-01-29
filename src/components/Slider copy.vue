@@ -109,7 +109,6 @@ export default {
 .slides {
 	position: relative;
 	display: flex;
-	overflow: hidden;
 }
 
 .slide {

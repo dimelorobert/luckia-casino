@@ -34,10 +34,9 @@ export default {};
 	justify-content: space-around;
 	height: 100vh;
 	width: 100%;
-	background: url("../assets/lu4.jpg");
-   background-size: contain;
+	background: url("../assets/preview.jpg");
    background-position: top center;
-	background-size: contain;
+	background-size: cover;
 	background-repeat: no-repeat;
 }
 
