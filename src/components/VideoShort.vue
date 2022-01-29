@@ -109,6 +109,7 @@ export default {
 		font-size: .95rem;
 		padding: 0 1rem;
 		text-align: left;
+		text-justify: newspaper ;
 	}
 }
 
