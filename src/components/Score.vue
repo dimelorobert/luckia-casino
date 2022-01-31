@@ -30,8 +30,35 @@
 </template>
 
 <script>
-name: "Score";
-export default {};
+import cheerio from "cheerio";
+const axios = require("axios").default;
+
+export default {
+	name: "Score",
+	data() {
+		return {
+			players: [],
+			playerobj: {},
+			url: "https://resultados.isquad.es/equipo.php?seleccion=0&id_equipo=202137011&id=40989&id_territorial=33&id_ambito=3",
+		};
+	},
+	methods: {
+		async getPlayerData() {
+			const res = await axios.get(this.url);
+			console.log("RESPONSE:::>", res);
+			// const $ = cheerio.load(res.data);
+			// $(".caja_jugador").each((index, element) => {
+			// 	const name = $(element).find(".nombre_corto").text();
+			// 	this.players = this.players.push({ name });
+			// 	console.log("ESTE ES EL NAME:::>>", name, this.players);
+			// 	//console.log("ESTE ES EL ARRAY:::>>", this.players);
+			// });
+		},
+	},
+	async created() {
+		await this.getPlayerData();
+	},
+};
 </script>
 
 <style scoped>
