@@ -23,7 +23,7 @@ const URL =
 			const image = jugador.querySelector(".foto_jugador>img").src;
 			const feats = jugador.querySelectorAll(".item");
 			console.log("ESTOS SON LOS FEATS::>", feats);
-			data.push({ name, image  });
+			data.push({ name, image });
 		});
 		return data;
 	});
