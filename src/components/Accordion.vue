@@ -2,7 +2,13 @@
 	<div class="accordion">
 		<article class="accordion__slide">
 			<!-- <img class="accordion__image" src="../assets/lu2.jpg" alt="" /> -->
-<video autoplay="true" loop muted src="../assets/nike-shot.mp4" class="accordion__image"></video>
+			<video
+				autoplay="true"
+				loop
+				muted
+				src="../assets/nike-shot.mp4"
+				class="accordion__image"
+			></video>
 			<a class="accordion__link" href="#"
 				><h3 class="accordion__title">Titulo Luisito H3</h3>
 				<p class="accordion__description">{{ descriptionLimiter }}</p>

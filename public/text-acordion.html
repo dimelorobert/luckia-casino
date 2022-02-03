@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+			rel="stylesheet"
+		/>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,600;1,700&display=swap"
+			rel="stylesheet"
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<style>
+			* {
+				font-family: "Titillium Web", sans-serif;
+			}
+
+			.accordion__button {
+				background-color: #efefef;
+				color: #444;
+				cursor: pointer;
+				padding: 0 18px;
+				width: 100%;
+				border: none;
+				text-align: left;
+				outline: none;
+				font-size: 15px;
+				transition: 0.4s;
+			}
+			.accordion__button {
+				border: none;
+				width: 100%;
+				text-align: left;
+			}
+
+			.active {
+				transition: 0.6s all ease-in-out;
+			}
+
+			.active,
+			.accordion__button:hover {
+				background-color: #efefef;
+			}
+
+			.accordion__panel {
+				padding: 0 18px;
+				display: none;
+				background-color: #efefef;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="accordion">
+			<button class="accordion__button">
+				<h2 class="accordion__title">PREGUNTAS FRECUENTES</h2>
+			</button>
+			<div class="accordion__panel">
+				<ul>
+					<li>
+						<a href="#" class="accordion__link">Promociones</a>
+					</li>
+					<li>
+						<a href="#" class="accordion__link">Bonos de apuestas</a>
+					</li>
+					<li>
+						<a href="#" class="accordion__link">Bonos de casino</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<script>
+			const accordion = document.getElementsByClassName("accordion__button");
+			var i;
+
+			for (i = 0; i < accordion.length; i++) {
+				accordion[i].addEventListener("click", function () {
+					this.classList.toggle("active");
+					var panel = this.nextElementSibling;
+					if (panel.style.display === "block") {
+						panel.style.display = "none";
+					} else {
+						panel.style.display = "block";
+					}
+				});
+			}
+		</script>
+	</body>
+</html>

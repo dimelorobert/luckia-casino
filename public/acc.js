@@ -1,9 +1,15 @@
 "strict mode";
+const accordion = document.getElementsByClassName("accordion__button");
+var i;
 
-const accordionContainer = document.querySelector(".accordion");
-const accordionSlide = document.querySelector(".accordion__slide");
-
-accordionContainer.addEventListener("mouseover", event => {
-   
-   console.log("ACORDEON::::>", event.target.classList.value);
-});
+for (i = 0; i < accordion.length; i++) {
+	accordion[i].addEventListener("click", function () {
+		this.classList.toggle("active");
+		var panel = this.nextElementSibling;
+		if (panel.style.display === "block") {
+			panel.style.display = "none";
+		} else {
+			panel.style.display = "block";
+		}
+	});
+}

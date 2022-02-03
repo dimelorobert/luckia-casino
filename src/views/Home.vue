@@ -9,9 +9,10 @@
 		<!-- <Accordion class="h-accordion" />
 		<VideoShort />
 		<Bio /> -->
-		<Score />
+		<!-- <Score /> -->
 		<!-- <Link :href="href" :text="text" :style="styles" /> -->
 		<!-- <Button :text="textBtn" :type="typeBtn" /> -->
+		<Footer />
 	</div>
 </template>
 
@@ -31,6 +32,7 @@ import VideoShort from "@/components/VideoShort.vue";
 import Link from "@/components/Link.vue";
 import Button from "@/components/Button.vue";
 import Slider from "@/components/Slider.vue";
+import Footer from "@/components/Footer.vue";
 
 export default {
 	name: "Home",
@@ -47,7 +49,7 @@ export default {
 		VideoShort,
 		Link,
 		Button,
-		Slider,
+		Slider,Footer
 	},
 	data() {
 		return {
