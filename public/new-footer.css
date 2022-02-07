@@ -1,42 +1,108 @@
+/*:::::::::::: IMPORTS ::::::::::::*/
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 @import url("https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,600;1,700&display=swap");
 
+/*:::::::::::: VARIABLES ::::::::::::*/
+:root {
+	--luckia: linear-gradient(266deg, #f80, #ea5b0c 53%, #dc4405);
+	--white: #fff;
+	--darkgrey: #444444;
+	--grey: #efefef;
+	--lightgrey: #f9f9f9;
+	--darkFontColor: #767676;
+}
+
+/*:::::::::::: RESET ::::::::::::*/
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	/* font-family: "Roboto", sans-serif; */
 	font-family: "Titillium Web", sans-serif;
+	/* font-family: "Roboto", sans-serif; */
 }
 
-/* LAYOUT CONTAINERS */
-.header {
-	background-color: orange;
-}
+/*:::::::::::: LAYOUT FOOTER ::::::::::::*/
 
-.main {
-	background-color: rgb(255, 255, 255);
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 }
 
 .footer {
 	display: flex;
-	background-color: #efefef;
 	flex-direction: column;
-	margin: 0;
-	min-height: 100vh;
-}
-
-.wrapper {
-	display: flex;
-	flex-wrap: wrap;
 	flex: 1;
 }
 
-.wrapper__content {
+.header {
+	background-image: var(--luckia);
+	color: var(--white);
 	display: flex;
-	justify-content: center;
+	flex: 1;
+	max-height: 75px;
+}
+
+.main {
+	display: flex;
+	flex: 1;
+	text-align: center;
+}
+/*:::::::::::: FOOTER SECTIONS LAYOUT ::::::::::::*/
+
+/** PAGOS **/
+.payments {
+	background-color: var(--lightgrey);
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	padding: 16px;
+	max-height: 140px;
+}
+
+.payments__title {
+	color: var(--darkFontColor);
+	font-size: 1rem;
+	max-width: 75%;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.payments__list-logos {
 	align-items: center;
+	display: flex;
 	flex-wrap: wrap;
-	flex: 1 1 200px;
+	justify-content: center;
+	margin: 8px 0 0 0;
+}
+
+.payments__list-items {
+	list-style: none;
+}
+
+.payments__list-images {
+	height: 19px;
+	margin: 0 8px;
+}
+
+/** ENLACES **/
+.links {
+	background-color: var(--grey);
+	display: flex;
+	flex: 1;
+}
+
+
+
+.rules {
+	background-color: var(--lightgrey);
+	display: flex;
+	flex: 1;
+}
+
+.terms {
+	background-color: var(--darkgrey);
+	display: flex;
+	flex: 1;
 }
