@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./new-accordion.css" />
+		<title>Accordion</title>
+	</head>
+	<body>
+		<ul class="menu">
+			<li class="menu__item"><a href="#" class="menu__link">Hola1</a></li>
+			<li class="menu__item">
+				<a href="#" class="menu__link">Hola2</a>
+				<ul class="menu--child">
+					<li class="menu__item--child">
+						<a href="" class="menu__link">Hola</a>
+					</li>
+					<li class="menu__item--child">
+						<a href="" class="menu__link">Hola</a>
+					</li>
+					<li class="menu__item--child">
+						<a href="" class="menu__link">Hola</a>
+					</li>
+					<li class="menu__item--child">
+						<a href="" class="menu__link">Hola</a>
+					</li>
+				</ul>
+			</li>
+			<li class="menu__item"><a href="#" class="menu__link">Hola3</a></li>
+			<li class="menu__item"><a href="#" class="menu__link">Hola4</a></li>
+			<li class="menu__item"><a href="#" class="menu__link">Hola5</a></li>
+			<li class="menu__item"><a href="#" class="menu__link">Hola5</a></li>
+		</ul>
+
+		<!--<h2 class="accordion">
+			PREGUNTAS FRECUENTES<img
+				src="../src/assets/logo-pay/plus.svg"
+				alt=""
+			/>
+		</h2>
+
+
+
+		 <ul class="panel">
+			<li class="panel__item">
+				<a href="#" class="panel__link">FAQ</a>
+			</li>
+         <li class="panel__item">
+				<a href="#" class="panel__link">Pagos</a>
+			</li>
+         <li class="panel__item">
+				<a href="#" class="panel__link">Juego Responsable</a>
+			</li>
+         <li class="panel__item">
+				<a href="#" class="panel__link">Legal</a>
+			</li>
+		</ul>-->
+		<script>
+			var acc = document.getElementsByClassName("accordion");
+
+			for (let i = 0; i < acc.length; i++) {
+				acc[i].addEventListener("click", function () {
+					this.classList.toggle("active");
+					var panel = this.nextElementSibling;
+					panel.style.display === "block"
+						? (panel.style.display = "none")
+						: (panel.style.display = "block");
+				});
+			}
+
+			var itemChild2 = document.querySelector(".menu__item:nth-child(2)");
+			console.log("hola::>", itemChild2);
+		</script>
+	</body>
+</html>
