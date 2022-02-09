@@ -8,11 +8,11 @@
 		<title>Accordion</title>
 	</head>
 	<body>
-		<div class="wrapper">
-			<h2 class="accordion">
+		<div class="accordion">
+			<h2 class="accordion__title">
 				PREGUNTAS FRECUENTES
 				<svg
-					class="cross"
+					class="accordion__cross"
 					viewBox="0 0 12 12"
 					fill="none"
 					xmlns="http://www.w3.org/2000/svg"
@@ -21,37 +21,39 @@
 				>
 					<path
 						d="M11.343 5.06254H11.3437H6.93746V0.664585C6.93746 0.302634 6.64439 0 6.28244 0H5.71863C5.35678 0 5.06244 0.302634 5.06244 0.664585V5.06254H0.656293C0.294537 5.06254 0 5.35522 0 5.71727V6.28429C0 6.64605 0.294439 6.93746 0.656293 6.93746H5.06254V11.3513C5.06254 11.7131 5.35678 11.9999 5.71873 11.9999H6.28254C6.64449 11.9999 6.93756 11.713 6.93756 11.3513V6.93746H11.343C11.705 6.93746 12 6.64595 12 6.28429V5.71727C12 5.35522 11.705 5.06254 11.343 5.06254Z"
-						fill="#888888"
 					/>
 				</svg>
 			</h2>
 
-			<ul class="panel">
-				<li class="panel__item">
-					<a href="#" class="panel__link">FAQ</a>
+			<ul class="accordion__panel">
+				<li class="accordion__panel--item">
+					<a href="#faq" class="accordion__panel--link">FAQ</a>
 				</li>
-				<li class="panel__item">
-					<a href="#" class="panel__link">Pagos</a>
+				<li class="accordion__panel--item">
+					<a href="#pagos" class="accordion__panel--link">Pagos</a>
 				</li>
-				<li class="panel__item">
-					<a href="#" class="panel__link">Juego Responsable</a>
+				<li class="accordion__panel--item">
+					<a href="#terms" class="accordion__panel--link"
+						>Juego Responsable</a
+					>
 				</li>
-				<li class="panel__item">
-					<a href="#" class="panel__link">Legal</a>
+				<li class="accordion__panel--item">
+					<a href="#" class="accordion__panel--link">Legal</a>
 				</li>
 			</ul>
 		</div>
+      
 
 		<script>
-			const accordion = document.querySelector(".accordion");
-			const panel = document.querySelector(".panel");
-			const cross = document.querySelector(".cross");
-			const crossPath = document.querySelector(".cross>path");
+			const accordion = document.querySelector(".accordion__title");
+			const panel = document.querySelector(".accordion__panel");
+			const cross = document.querySelector(".accordion__cross");
+			const crossPath = document.querySelector(".accordion__cross>path");
 
 			accordion.addEventListener("click", e => {
-				cross.classList.toggle("rotate");
-				crossPath.classList.toggle("lck");
-				panel.classList.toggle("show");
+				cross.classList.toggle("svg--rotate");
+				crossPath.classList.toggle("svg--hover");
+				panel.classList.toggle("show--links");
 			});
 		</script>
 	</body>

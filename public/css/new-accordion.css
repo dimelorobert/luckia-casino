@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,600;1,700&display=swap");
+
+* {
+	box-sizing: border-box;
+	color: #767676;
+	font-family: "Titillium Web", sans-serif;
+	/* font-family: "Roboto", sans-serif; */
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+}
+
+:root {
+	--luckia: linear-gradient(266deg, #f80, #ea5b0c 53%, #dc4405);
+	--white: #fff;
+	--darkgrey: #444444;
+	--grey: #efefef;
+	--lightgrey: #f9f9f9;
+	--darkFontColor: #767676;
+	--ceniza: #d6d6d6;
+}
+
+/* ::::: CSS ACCORDION :::::: */
+.accordion {
+	background-color: var(--grey);
+	border-top: 1px solid var(--ceniza);
+}
+
+.accordion__title {
+	display: flex;
+	margin: 16px 24px;
+	font-size: 16px;
+}
+
+.accordion__cross {
+	position: absolute;
+	right: 24px;
+	transform: rotate(0deg);
+	transition: transform 0.3s;
+	fill: #888888;
+	margin: 0 0 0 auto;
+}
+
+.accordion__panel {
+	background-color: var(--grey);
+	width: 100vw;
+	/* position: absolute;
+	transform-origin: top center;
+	transform: transform;
+	transition: margin all 0.3s ease-in-out; */
+	padding: 0 16px 8px 16px;
+	margin-top: -100px;
+	opacity: 0;
+}
+
+
+.svg--rotate {
+	transform: rotate(45deg);
+	transition: transform 0.3s;
+}
+
+.svg--hover {
+	fill: #fa6029;
+}
+
+.show--links {
+	/*position: absolute;
+	 transform-origin: top center;
+	transform: scale(1, 1); */
+	margin-top: 0;
+	opacity: 1;
+}
+
+.accordion__panel--link {
+	font-size: 15px;
+}
+
+.accordion__panel--link:hover {
+	color: black;
+}
