@@ -3,7 +3,7 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,600;1,700&display=swap");
 
-@import url("./new-accordion.css");
+@import url(".//accordion-js-NEW.css");
 
 /*:::::::::::: VARIABLES ::::::::::::*/
 :root {
@@ -108,7 +108,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	margin: 8px 0;
+	margin: 24px 106px auto 88px;
 	width: 100%;
 }
 
@@ -215,5 +215,7 @@ svg.cross {
 		width: fit-content;
 	}
 
-	
+	.accordion {
+		display: none;
+	}
 }
