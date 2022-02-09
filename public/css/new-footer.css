@@ -123,8 +123,6 @@ body {
 	height: 39px;
 }
 
-
-
 .links__list-social {
 	display: flex;
 	gap: 8px;
@@ -151,7 +149,6 @@ body {
 	transform: scale(1.2);
 	opacity: 0.6;
 	transition: transform 0.45s;
-
 }
 
 .links__list--link {
@@ -270,7 +267,6 @@ body {
 		max-width: 560px;
 		margin: 12px 19px 12px 17px;
 	}
-
 }
 
 /** #7. DESKTOP **/
@@ -281,5 +277,11 @@ body {
 
 	.rules__logo--img {
 		height: 72px;
+	}
+}
+
+@media only screen and (min-width: 1200px) {
+	.rules__description {
+		margin: 24px 137px 24px 17px;
 	}
 }
