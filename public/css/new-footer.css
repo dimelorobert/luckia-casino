@@ -14,6 +14,7 @@
 	--lightgrey: #f9f9f9;
 	--darkFontColor: #767676;
 	--footerBottom: #212121;
+	--orange: #ea5b0c;
 }
 
 /*:::::::::::: RESET ::::::::::::*/
@@ -54,15 +55,23 @@ body {
 	justify-content: center;
 	text-align: center;
 }
-/*:::::::::::: FOOTER SECTIONS LAYOUT ::::::::::::*/
+/*:::::::::::: FOOTER SECTIONS LAYOUT ::::::::::::
+- Summary:
+   #1. PAYMENTS
+	#2. LINKS
+	#3. RULES
+	#4. TERMS
+	#5. MOBILE
+	#6. TABLET
+	#7. DESKTOP
+*/
 
-/** PAGOS **/
+/** #1. PAYMENTS **/
 .payments {
 	background-color: var(--lightgrey);
 	display: flex;
 	flex: 1;
 	flex-direction: column;
-	/* max-height: 140px; */
 }
 
 .payments__wrapper {
@@ -95,16 +104,14 @@ body {
 	margin: 0 8px;
 }
 
-/** ENLACES **/
+/** #2. LINKS **/
 .links {
 	background-color: var(--grey);
 	display: flex;
-	/* flex: 1;  para movil media query*/
 	flex-wrap: wrap;
-	/* margin: 24px 17px 19px; */
 }
 
-.links__logo {
+.links__box-logos {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -112,9 +119,11 @@ body {
 	width: 100%;
 }
 
-.links__logo-img {
+.links__box-logos--img {
 	height: 39px;
 }
+
+
 
 .links__list-social {
 	display: flex;
@@ -124,23 +133,38 @@ body {
 	padding-left: 8px;
 }
 
-svg.cross {
-	transform: scale(0.5);
-}
-
 .links__list {
 	margin: 16px 24px;
-	/* flex: 1; para tablet media query*/
 	width: 260px;
 }
 
-.links__list-items {
+.links__list--title {
+	font-size: 1rem;
+	line-height: 26px;
+}
+
+.links__list-social--item {
 	list-style: none;
 }
-.links__link {
+
+.links__list-social--icon:hover {
+	transform: scale(1.2);
+	opacity: 0.6;
+	transition: transform 0.45s;
+
+}
+
+.links__list--link {
 	color: var(--darkFontColor);
 	text-decoration: none;
 }
+
+.links__list--link:hover {
+	color: var(--footerBottom);
+}
+
+/** #3. RULES **/
+
 .rules {
 	display: flex;
 	flex-wrap: wrap;
@@ -152,8 +176,9 @@ svg.cross {
 .rules__logo {
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	gap: 8px;
-	margin: 12px 19px 12px 17px;
+	margin: 24px 19px 24px 17px;
 	width: 100%;
 }
 
@@ -168,10 +193,15 @@ svg.cross {
 	height: 46px;
 }
 
-.rules__deescription {
+.rules__description {
 	line-height: 24px;
-	margin: 12px 19px 12px 17px;
+	margin: 24px 19px 24px 17px;
 	font-size: 12px;
+}
+
+.rules__description--link {
+	color: var(--orange);
+	font-weight: bold;
 }
 
 .terms {
@@ -179,6 +209,8 @@ svg.cross {
 	display: flex;
 	flex: 1;
 }
+
+/** #4. TERMS **/
 
 .terms__list {
 	display: inline-flex;
@@ -194,7 +226,9 @@ svg.cross {
 	line-height: 20px;
 }
 
-@media only screen and (min-width: 688px) {
+/*:::::::::::: DO RESPONSIVE MEDIA QUERYS ::::::::::::*/
+/** #5. MOBILE **/
+@media only screen and (min-width: 767px) {
 	.links {
 		justify-content: space-between;
 	}
@@ -207,8 +241,9 @@ svg.cross {
 	}
 }
 
+/** #6. TABLETS **/
 @media only screen and (min-width: 1024px) {
-	.links__logo {
+	.links__box-logos {
 		justify-content: flex-start;
 		align-items: flex-start;
 		margin: 24px 36px;
@@ -217,5 +252,34 @@ svg.cross {
 
 	.accordion {
 		display: none;
+	}
+
+	.rules {
+		flex-wrap: nowrap;
+	}
+
+	.rules__logo {
+		justify-content: flex-start;
+	}
+
+	.rules__logo--img {
+		height: 63px;
+	}
+
+	.rules__description {
+		max-width: 560px;
+		margin: 12px 19px 12px 17px;
+	}
+
+}
+
+/** #7. DESKTOP **/
+@media only screen and (min-width: 1200px) {
+	.rules__logo {
+		justify-content: center;
+	}
+
+	.rules__logo--img {
+		height: 72px;
 	}
 }
