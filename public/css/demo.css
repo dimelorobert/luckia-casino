@@ -1,0 +1,114 @@
+/*:::::::::::: IMPORTS ::::::::::::*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,600;1,700&display=swap");
+
+@import url(".//accordion-js-NEW.css");
+
+/*:::::::::::: VARIABLES ::::::::::::*/
+:root {
+	--luckiaa: linear-gradient(266deg, #f80, #ea5b0c 53%, #dc4405);
+	--white: #fff;
+	--darkgrey: #444444;
+	--grey: #efefef;
+	--lightgrey: #f9f9f9;
+	--darkFontColor: #767676;
+	--luckia: #ea5b0c;
+	--dark: #212121;
+}
+
+/*:::::::::::: RESET ::::::::::::*/
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Titillium Web", sans-serif;
+	/* font-family: "Roboto", sans-serif; */
+}
+
+body {
+}
+
+.demo {
+	display: grid;
+	height: 328px;
+	width: 100%;
+	max-width: 1440px;
+	max-height: 328px;
+	grid-template-columns: 1fr 1fr;
+}
+
+.col2 {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: repeat(auto-fit, minmax(min-content, max-content));
+	gap: 10px;
+}
+
+.col1 {
+	display: flex;
+	/* background-color: orangered; */
+	
+}
+
+.col21 {
+	/* background-color: yellow; */
+	height: fit-content;
+	grid-row-start: 1;
+	grid-row-end: 4; 
+	grid-column-start:1;
+	grid-column-end: 2;
+	column-span: all;
+}
+.col22 {
+	/* background-color: blue; */
+	height: 235px;
+	margin-bottom: 235px;
+}
+.col23 {
+	/* background-color: red; */
+	height: fit-content;
+	grid-row-start: 1;
+	grid-row-end: 2; 
+	grid-column-start:3;
+	grid-column-end: 4;
+}
+.col24 {
+	/* background-color: green; */
+	height: fit-content;
+}
+.col25 {
+	/* background-color: rebeccapurple; */
+	grid-row-start: 2;
+	grid-row-end: 4;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	height: fit-content;
+}
+
+.col26 {
+	/* background-color: salmon; */
+	grid-row-start: 2;
+	grid-row-end: 3;
+	grid-column-start: 3;
+	grid-column-end: 4;	
+}
+
+.col27 {
+	/* background-color: aliceblue; */
+	height: fit-content;
+}
+
+.col28 {
+	/* background-color: greenyellow; */
+	height: fit-content;
+	grid-row-start: 3;
+	grid-row-end: 4;
+	grid-column-start: 3;
+	grid-column-end: 4;
+}
+
+.col29 {
+	background-color: fuchsia;
+	height: fit-content;
+}

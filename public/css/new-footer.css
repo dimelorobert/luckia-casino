@@ -7,14 +7,14 @@
 
 /*:::::::::::: VARIABLES ::::::::::::*/
 :root {
-	--luckia: linear-gradient(266deg, #f80, #ea5b0c 53%, #dc4405);
+	--luckiaa: linear-gradient(266deg, #f80, #ea5b0c 53%, #dc4405);
 	--white: #fff;
 	--darkgrey: #444444;
 	--grey: #efefef;
 	--lightgrey: #f9f9f9;
 	--darkFontColor: #767676;
-	--footerBottom: #212121;
-	--orange: #ea5b0c;
+	--luckia: #ea5b0c;
+	--dark: #212121;
 }
 
 /*:::::::::::: RESET ::::::::::::*/
@@ -41,7 +41,7 @@ body {
 }
 
 .header {
-	background-image: var(--luckia);
+	background-image: var(--luckiaa);
 	color: var(--white);
 	display: flex;
 	flex: 1;
@@ -110,7 +110,6 @@ body {
 	display: flex;
 	flex-wrap: wrap;
 }
-
 .links__box-logos {
 	display: flex;
 	flex-direction: column;
@@ -157,7 +156,7 @@ body {
 }
 
 .links__list--link:hover {
-	color: var(--footerBottom);
+	color: var(--dark);
 }
 
 /** #3. RULES **/
@@ -197,12 +196,12 @@ body {
 }
 
 .rules__description--link {
-	color: var(--orange);
+	color: var(--luckia);
 	font-weight: bold;
 }
 
 .terms {
-	background-color: var(--footerBottom);
+	background-color: var(--dark);
 	display: flex;
 	flex: 1;
 }
@@ -221,6 +220,11 @@ body {
 	font-size: 14px;
 	color: var(--white);
 	line-height: 20px;
+}
+
+.wrapper:nth-of-type(3) > ul.links__list:nth-child(2),
+.wrapper:nth-of-type(3) > ul.links__list:nth-child(3) {
+	display: none;
 }
 
 /*:::::::::::: DO RESPONSIVE MEDIA QUERYS ::::::::::::*/
@@ -267,6 +271,11 @@ body {
 		max-width: 560px;
 		margin: 12px 19px 12px 17px;
 	}
+
+	.wrapper:nth-of-type(3) > ul.links__list:nth-child(2),
+	.wrapper:nth-of-type(3) > ul.links__list:nth-child(3) {
+		display: block;
+	}
 }
 
 /** #7. DESKTOP **/
@@ -283,5 +292,15 @@ body {
 @media only screen and (min-width: 1200px) {
 	.rules__description {
 		margin: 24px 137px 24px 17px;
+	}
+
+	.links {
+		
+	}
+}
+
+@media only screen and (min-width: 1440px) {
+	.links__list--link {
+		font-size: 13px;
 	}
 }
