@@ -289,16 +289,8 @@ body {
 	}
 }
 
-@media only screen and (min-width: 1200px) {
-	.rules__description {
-		margin: 24px 137px 24px 17px;
-	}
-
-	.links {
-		
-	}
-}
-
+@media only screen and (min-width: 1200px) {}
+	
 @media only screen and (min-width: 1440px) {
 	.links__list--link {
 		font-size: 13px;
