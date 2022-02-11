@@ -50,7 +50,8 @@ export default {
 		VideoShort,
 		Link,
 		Button,
-		Slider,Footer
+		Slider,
+		Footer,
 	},
 	data() {
 		return {
@@ -67,7 +68,7 @@ export default {
 
 			/* Config  Link*/
 			href: "https://google.es",
-			text: "hola marola",
+			text: "links__container marola",
 			styles: {
 				color: "#FFF",
 				fontSize: "1rem",
@@ -131,5 +132,5 @@ export default {
 	.h-accordion {
 		display: none;
 	}
-}*/ 
+}*/
 </style>

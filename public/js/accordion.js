@@ -39,3 +39,6 @@ headerAccordion.forEach(accordion => {
 			: content.scrollHeight + "px";
 	});
 });
+
+
+

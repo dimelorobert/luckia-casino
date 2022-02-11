@@ -14,9 +14,8 @@
 	--grey: #efefef;
 	--lightgrey: #f9f9f9;
 	--darkFontColor: #767676;
+	--luckia: #ea5b0c;
 	--dark: #212121;
-	--ceniza: #d6d6d6;
-	--orange: #ea5b0c;
 }
 
 /*:::::::::::: RESET ::::::::::::*/
@@ -42,6 +41,21 @@ body {
 	flex: 1;
 }
 
+.header {
+	background-image: var(--luckiaa);
+	color: var(--white);
+	display: flex;
+	flex: 1;
+	justify-content: center;
+	max-height: 75px;
+}
+
+.main {
+	display: flex;
+	flex: 1;
+	justify-content: center;
+	text-align: center;
+}
 /*:::::::::::: FOOTER SECTIONS LAYOUT ::::::::::::
 - Summary:
    #1. PAYMENTS
@@ -97,18 +111,11 @@ body {
 	display: flex;
 	flex-wrap: wrap;
 }
-
-.links__container {
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: column;
-}
-
 .links__box-logos {
-	align-items: center;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	margin: 24px 106px auto 88px;
 	width: 100%;
 }
 
@@ -124,98 +131,33 @@ body {
 	padding-left: 8px;
 }
 
-.links__c-links {
-	display: inline-flex;
-	flex-direction: column;
-	max-height: 422px;
+.links__list {
+	margin: 16px 24px;
+	width: 260px;
 }
 
-.links__c-links > .links__c-links--list {
-	padding-bottom: 8px;
+.links__list--title {
+	font-size: 1rem;
+	line-height: 26px;
 }
 
-.links__content {
-	display: inline-flex;
-}
-
-.links__wrapper {
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
-	gap: 8px;
-}
-
-.links__content
-	> .links__wrapper
-	> .links__c-links--list:nth-child(4)
-	> .links__c-links--item:first-child {
-	display: flex;
-	justify-content: space-between;
-	padding-right: 24px;
-}
-
-.links__content
-	> .links__wrapper
-	> .links__c-links--list:nth-child(4)
-	> .links__c-links--item:nth-child(2) {
-	max-height: 0;
-	overflow: hidden;
-	transition: max-height 0.45s ease-in-out;
-}
-
-.links__c-links--title {
-	font-size: 13px;
-	line-height: 16px;
-	font-weight: bold;
-}
-
-.links__c-links--list {
-	display: flex;
-	flex-direction: column;
-	max-height: 422px;
-	flex-wrap: wrap;
+.links__list-social--item {
 	list-style: none;
 }
 
-.links__c-links--item {
-	display: inline-flex;
-	align-items: center;
-	height: 20px;
-	width: 100vw; /*208px cuando salga de mobile*/
+.links__list-social--icon:hover {
+	transform: scale(1.2);
+	opacity: 0.6;
+	transition: transform 0.45s;
 }
 
-.links__icon__wrapper {
-	display: flex; /* inline cuando salga de mobile */
-	justify-content: center;
-	align-items: center;
-}
-
-.links__wrapper
-	> .links__c-links--list:nth-child(4).luckia
-	> .links__c-links--item:first-child
-	> .links__icon__wrapper
-	> .links__icon {
-	transform: rotate(-135deg);
-	transition: transform 0.45s ease-in-out;
-}
-
-.links__icon {
-	width: 10px;
-	transform: rotate(0deg);
-	transition: transform 0.45s ease-in-out;
-	fill: var(--darkFontColor);
-}
-
-.luckia {
-	fill: var(--orange);
-}
-
-.links__c-links--link {
+.links__list--link {
+	color: var(--darkFontColor);
 	text-decoration: none;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 13px;
-	line-height: 16px;
+}
+
+.links__list--link:hover {
+	color: var(--dark);
 }
 
 /** #3. RULES **/
@@ -284,6 +226,11 @@ body {
 .wrapper:nth-of-type(3) > ul.links__list:nth-child(2),
 .wrapper:nth-of-type(3) > ul.links__list:nth-child(3) {
 	display: none;
+}
+
+.links__container {
+	display: flex;
+	flex-wrap: wrap;
 }
 
 /*:::::::::::: DO RESPONSIVE MEDIA QUERYS ::::::::::::*/
@@ -380,9 +327,6 @@ body {
 	.rules__logo--img {
 		height: 72px;
 	}
-
-	.links__content {
-		width: 455px;}
 } */
 
 /* @media only screen and (min-width: 1200px) {
