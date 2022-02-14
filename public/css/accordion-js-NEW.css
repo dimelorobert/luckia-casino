@@ -27,41 +27,154 @@
 body {
 	background-color: var(--grey);
 }
-
-.accordion {
-	border-top: 1px solid var(--ceniza);
-	width: fit-content;
+/*::::: PAYMENTS :::::*/
+.payments {
+	height: 140px;
+	max-height: 140px;
+	background-color: var(--white);
+}
+.payments__title--wrapper {
+	padding: 16px 66px 8px 66px;
+}
+.payments__title {
+	font-weight: 600;
+	font-style: normal;
+	font-size: 16px;
+	line-height: 24px;
+	text-align: center;
+}
+.payments__logo--wrapper {
+	padding:  0 32px;
+}
+.payments__list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.payments__items {
+	margin: 0 8px;
+}
+.payments__images {
+	height: 18px;
 }
 
-.links__mobile>.accordion:first-child,
-.links__mobile>.accordion:nth-child(2),
-.links__mobile>.accordion:nth-child(3),
-.links__mobile>.accordion:nth-child(4) {
+.seolinks {
+}
+
+/*::: 1#. LOGO :::*/
+.seolinks__wrapper {
+}
+
+.seolinks__logo {
+}
+
+.seolinks__logo--img {
+}
+
+.seolinks__logo-list {
+}
+
+.seolinks__logo-list--item {
+}
+
+.seolinks__logo-list--icon {
+}
+
+/*::: 2#. APUESTAS :::*/
+
+.seolinks__bets {
+	max-height: 420px;
+}
+
+.seolinks__bets > .accordion:first-child {
 	border: none;
 }
 
-.links > .accordion:nth-child(2),
-.links > .accordion:last-child {
+.seolinks__bets
+	> .accordion:first-child
+	> .accordion__header
+	> .accordion__icon-wrapper {
+	display: none;
+}
+
+/*::: 3#. MORE LINKS :::*/
+
+.seolinks__more > .accordion:nth-child(1),
+.seolinks__more > .accordion:nth-child(2),
+.seolinks__more > .accordion:nth-child(3) {
+	border: none;
+	width: fit-content;
+}
+
+.seolinks__more
+	> .accordion:nth-child(1)
+	> .accordion__header
+	> .accordion__icon-wrapper,
+.seolinks__more
+	> .accordion:nth-child(2)
+	> .accordion__header
+	> .accordion__icon-wrapper,
+.seolinks__more
+	> .accordion:nth-child(3)
+	> .accordion__header
+	> .accordion__icon-wrapper {
+	display: none;
+}
+
+.accordion {
+	border-top: 1px solid var(--ceniza);
+	width: 100%;
+	padding: 0 24px;
+}
+
+.seolinks > .accordion:nth-child(2),
+.seolinks > .accordion:last-child {
 	width: 100%;
 }
 
-.accordion:first-child > .acc__header > .accordion__icon-wrapper,
-.accordion:nth-child(2) > .acc__header > .accordion__icon-wrapper,
-.accordion:nth-child(3) > .acc__header > .accordion__icon-wrapper,
-.accordion:nth-child(4) > .acc__header > .accordion__icon-wrapper {
-	display: none;
+.seolinks__bets > .accordion:first-child {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	height: auto;
+}
+
+.seolinks__wrapper {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+}
+
+.seolinks__logo-list {
+	display: inline-flex;
+	gap: 8px;
+	padding-left: 12px;
+}
+
+.seolinks__logo--img {
+	height: 39px;
+}
+
+.seolinks__bets > .accordion:first-child > .accordion__header {
+	height: fit-content;
+}
+
+.seolinks__bets > .accordion:first-child > .acc__body > .accordion__list {
+	column-gap: 8px;
+	column-fill: auto;
 }
 
 .acc__body {
 	max-height: fit-content;
+
+	margin-bottom: 14px;
 }
 
-.acc__header,
 .accordion__header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin: 0.5rem 0.75rem; /* 8px 12px */
 	/*styles*/
 	cursor: pointer;
 }
@@ -74,12 +187,10 @@ body {
 }
 
 .accordion__title {
-	display: inline-flex;
 	font-style: normal;
 	font-weight: bold;
-	font-size: 16px;
+	font-size: 13px;
 	line-height: 16px;
-	margin: 0 12px;
 }
 
 .accordion__icon-wrapper {
@@ -104,13 +215,12 @@ body {
 }
 
 .accordion__list {
-	margin: 0.5rem 1.5rem; /* 8px 12px */
 }
 
 .accordion__list--link {
 	font-style: normal;
 	font-weight: normal;
-	font-size: 15px;
+	font-size: 13px;
 	line-height: 16px;
 }
 
@@ -118,15 +228,49 @@ body {
 	background-color: var(--grey);
 }
 
-.links__mobile {
-	display: flex;
-	flex-direction: column;
+.seolinks__more {
 }
 
-@media only screen and (min-width: 564px) {
-	.links__mobile {
-		flex-direction: row;
+.seolinks__more
+	> .accordion:nth-child(4)
+	> .accordion__header
+	> .accordion__title,
+.seolinks__more
+	> .accordion:nth-child(5)
+	> .accordion__header
+	> .accordion__title {
+	font-size: 16px;
+	font-style: normal;
+	font-weight: bold;
+	line-height: 16px;
+	margin: 0;
+}
+
+.seolinks__more > .accordion:nth-child(4) > .accordion__body,
+.seolinks__more > .accordion:nth-child(5) > .accordion__body {
+}
+
+.seolinks__more > .accordion:nth-child(4) > .accordion__header,
+.seolinks__more > .accordion:nth-child(5) > .accordion__header {
+	margin: 15px 0;
+}
+
+@media only screen and (min-width: 688px) {
+	.seolinks__bets > .accordion:first-child {
+		height: auto;
+	}
+
+	.seolinks__bets > .accordion:first-child > .acc__body > .accordion__list {
+		columns: 40px 2;
+		column-fill: balance;
+		height: auto;
+		gap: 168px;
+	}
+
+	.seolinks__more {
+		display: flex;
 		flex-wrap: wrap;
+		justify-content: space-between;
 	}
 }
 
@@ -137,7 +281,7 @@ body {
 
 	.accordion__header {
 		pointer-events: none;
-	} 
+	}
 
 	.accordion__icon-wrapper {
 		display: none;
@@ -147,10 +291,83 @@ body {
 		max-height: fit-content;
 	}
 
-	.links {
+	.seolinks {
 		display: flex;
+		max-height: 450px;
 	}
-	.accordion__header {
-		pointer-events: none;
+
+	.seolinks__wrapper {
+		justify-content: flex-start;
+		flex: 1;
+	}
+	.seolinks__bets {
+		flex: 1;
+	}
+
+	.seolinks__bets > .accordion:first-child {
+		flex-direction: row;
+		width: 380px;
+	}
+
+	.seolinks__bets > .accordion:first-child > .accordion__header {
+	}
+
+	.seolinks__bets > .accordion:first-child > .acc__body {
+		height: auto;
+		width: 100%;
+	}
+
+	.seolinks__bets > .accordion:first-child > .acc__body > .accordion__list {
+		height: 330px;
+		column-fill: auto;
+		gap: 0;
+	}
+
+	.seolinks__more {
+		flex-direction: column;
+		justify-content: unset;
+		flex: 2;
+		gap: 4px;
+	}
+
+	.seolinks__more > .accordion:nth-child(1) {
+	}
+	.seolinks__more > .accordion:nth-child(2) {
+	}
+	.seolinks__more > .accordion:nth-child(3) {
+	}
+
+	.seolinks__more > .accordion:nth-child(4) {
+		width: fit-content;
+	}
+
+	.seolinks__more > .accordion:nth-child(5) {
+		width: fit-content;
+	}
+
+	.seolinks__more
+		> .accordion:nth-child(4)
+		> .accordion__header
+		> .accordion__title,
+	.seolinks__more
+		> .accordion:nth-child(5)
+		> .accordion__header
+		> .accordion__title {
+		font-size: 13px;
+	}
+
+	.seolinks__more > .accordion:nth-child(4) > .accordion__header,
+	.seolinks__more > .accordion:nth-child(5) > .accordion__header {
+		margin: 0;
+	}
+}
+
+@media only screen and (min-width: 1200px) {
+	.seolinks {
+		max-height: 330px;
+	}
+
+	.seolinks__bets > .accordion:first-child {
+		width: 380px;
 	}
 }
