@@ -2,11 +2,13 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,600;1,700&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
 * {
 	box-sizing: border-box;
 	color: #767676;
-	font-family: "Titillium Web", sans-serif;
-	/* font-family: "Roboto", sans-serif; */
+	/*font-family: "Titillium Web", sans-serif;*/
+	font-family: "Roboto", sans-serif;
 	margin: 0;
 	padding: 0;
 	list-style: none;
@@ -29,12 +31,17 @@ body {
 }
 /*::::: PAYMENTS :::::*/
 .payments {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	height: 140px;
 	max-height: 140px;
 	background-color: var(--white);
 }
 .payments__title--wrapper {
-	padding: 16px 66px 8px 66px;
+	width: 65%;
+	margin: 8px;
 }
 .payments__title {
 	font-weight: 600;
@@ -44,7 +51,7 @@ body {
 	text-align: center;
 }
 .payments__logo--wrapper {
-	padding:  0 32px;
+	padding: 0 32px;
 }
 .payments__list {
 	display: flex;
@@ -52,7 +59,7 @@ body {
 	justify-content: center;
 }
 .payments__items {
-	margin: 0 8px;
+	margin: 4px;
 }
 .payments__images {
 	height: 18px;
@@ -256,6 +263,14 @@ body {
 }
 
 @media only screen and (min-width: 688px) {
+	.payments {
+		height: 96px;
+	}
+
+	.payments__images {
+		height: 16px;
+	}
+
 	.seolinks__bets > .accordion:first-child {
 		height: auto;
 	}
@@ -275,8 +290,12 @@ body {
 }
 
 @media only screen and (min-width: 1024px) {
+	.payments__images {
+		height: 24px;
+	}
 	.accordion {
 		border: none;
+		padding: 0;
 	}
 
 	.accordion__header {
@@ -293,23 +312,26 @@ body {
 
 	.seolinks {
 		display: flex;
-		max-height: 450px;
+		max-height: 420px;
+	}
+
+	.seolinks > .seolinks__bets > .accordion:first-child {
+		padding: 0 0 0 17px;
 	}
 
 	.seolinks__wrapper {
 		justify-content: flex-start;
 		flex: 1;
+		padding-right: 17px;
 	}
+
 	.seolinks__bets {
 		flex: 1;
 	}
-
+	/*COLUMN CONFIG accordion and accordion__list*/
 	.seolinks__bets > .accordion:first-child {
 		flex-direction: row;
-		width: 380px;
-	}
-
-	.seolinks__bets > .accordion:first-child > .accordion__header {
+		width: 420px;
 	}
 
 	.seolinks__bets > .accordion:first-child > .acc__body {
@@ -318,9 +340,11 @@ body {
 	}
 
 	.seolinks__bets > .accordion:first-child > .acc__body > .accordion__list {
-		height: 330px;
+		height: 250px;
 		column-fill: auto;
-		gap: 0;
+		gap: 30px;
+		column-span: all;
+		column-width: auto;
 	}
 
 	.seolinks__more {
@@ -360,14 +384,86 @@ body {
 	.seolinks__more > .accordion:nth-child(5) > .accordion__header {
 		margin: 0;
 	}
+	.seolinks__more > .accordion:nth-child(1) > .accordion__header,
+	.seolinks__more > .accordion:nth-child(2) > .accordion__header,
+	.seolinks__more > .accordion:nth-child(3) > .accordion__header,
+	.seolinks__more > .accordion:nth-child(4) > .accordion__header,
+	.seolinks__more > .accordion:nth-child(5) > .accordion__header {
+		padding-top: 8px;
+	}
+
+	.seolinks__more
+		> .accordion:nth-child(1)
+		> .accordion__header
+		> .accordion__title,
+	.seolinks__more
+		> .accordion:nth-child(2)
+		> .accordion__header
+		> .accordion__title,
+	.seolinks__more
+		> .accordion:nth-child(3)
+		> .accordion__header
+		> .accordion__title,
+	.seolinks__more
+		> .accordion:nth-child(4)
+		> .accordion__header
+		> .accordion__title,
+	.seolinks__more
+		> .accordion:nth-child(5)
+		> .accordion__header
+		> .accordion__title {
+		padding-bottom: 8px;
+	}
 }
 
 @media only screen and (min-width: 1200px) {
 	.seolinks {
 		max-height: 330px;
+		padding: 24px;
+	}
+
+	.seolinks > .seolinks__wrapper > .seolinks__logo {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		margin-bottom: 16.49px;
+	}
+
+	.seolinks > .seolinks__wrapper > .seolinks__logo {
+		height: 38.69px;
+	}
+
+	.seolinks > .seolinks__wrapper > .seolinks__logo-list {
+		display: flex;
+		gap: 8px;
+		padding-right: 42px;
+		justify-content: center;
+		width: 100%;
 	}
 
 	.seolinks__bets > .accordion:first-child {
-		width: 380px;
+		width: 420px;
+	}
+
+	.seolinks__bets > .accordion:first-child > .acc__body > .accordion__list {
+		height: 260px;
+		column-fill: auto;
+		gap: 8px;
+		columns: 140px 2;
+	}
+
+	.seolinks__bets > .accordion:first-child > .accordion__header {
+		padding-top: 8px;
+	}
+
+	.seolinks__bets
+		> .accordion:first-child
+		> .accordion__header
+		> .accordion__title {
+		padding-bottom: 8px;
+	}
+
+	.seolinks__more>.accordion:nth-child(3)>.accordion__header{
+		padding-top: 0;
 	}
 }
