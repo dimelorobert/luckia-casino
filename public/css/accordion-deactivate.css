@@ -1,0 +1,10 @@
+.seolinks__bets > .accordion:first-child {
+	border: none;
+}
+
+.seolinks__bets
+	> .accordion:first-child
+	> .accordion__header
+	> .accordion__icon-wrapper {
+	display: none;
+}

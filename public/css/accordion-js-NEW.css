@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
+@import url("./accordion-deactivate.css");
+
 * {
 	box-sizing: border-box;
 	color: #767676;
@@ -25,6 +27,14 @@
 	--greyjoy: #d6d6d6;
 	--magnolia: #efefef;
 	--magnolia-light: #f9f9f9;
+	--xs-size: 8px;
+	--s-size: 16px;
+	--m-size: 24px;
+	--l-size: 32px;
+	--x-size: 40px;
+	--xl-size: 48px;
+	--xxl-size: 56px;
+	--xxl-size: 64px;
 }
 
 body {
@@ -78,17 +88,6 @@ body {
 	max-height: 420px;
 }
 
-.seolinks__bets > .accordion:first-child {
-	border: none;
-}
-
-.seolinks__bets
-	> .accordion:first-child
-	> .accordion__header
-	> .accordion__icon-wrapper {
-	display: none;
-}
-
 /*::: 3#. MORE LINKS :::*/
 
 .seolinks__more > .accordion:nth-child(1),
@@ -114,7 +113,7 @@ body {
 }
 
 .accordion {
-	border-top: 1px solid var(--ceniza);
+	border-top: 1px solid var(--greyjoy);
 	width: 100%;
 	padding: 0 24px;
 }
@@ -191,7 +190,7 @@ body {
 	/*styles*/
 	transform: rotate(-135deg);
 	transition: transform 0.45s ease-in-out;
-	fill: var(--orange);
+	fill: var(--luckia);
 }
 
 .accordion__title {
@@ -218,8 +217,9 @@ body {
 
 .accordion__body {
 	max-height: 0;
+	min-height: 0;
 	overflow: hidden;
-	transition: max-height 0.45s ease-in-out;
+	transition: min-height 0.45s ease-in-out;
 }
 
 .accordion__list {
@@ -257,13 +257,13 @@ body {
 	> .accordion:nth-child(4)
 	> .accordion__body
 	> .accordion__list {
-	height: 90px;
+		padding-bottom: 16px;
 }
 .seolinks__more
 	> .accordion:nth-child(5)
 	> .accordion__body
 	> .accordion__list {
-	height: 150px;
+		padding-bottom: 16px;
 }
 
 .seolinks__more > .accordion:nth-child(4) > .accordion__header,
@@ -305,7 +305,7 @@ body {
 }
 
 .auth__description--link {
-	color: var(--orange);
+	color: var(--luckia);
 	font-weight: bold;
 	text-decoration: underline;
 	cursor: pointer;
@@ -553,7 +553,7 @@ body {
 	}
 
 	.auth__description--link {
-		color: var(--orange);
+		color: var(--luckia);
 		font-weight: bold;
 	}
 }

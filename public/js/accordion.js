@@ -34,11 +34,9 @@ headerAccordion.forEach(accordion => {
 	accordion.addEventListener("click", function () {
 		this.classList.toggle("red");
 		var content = this.nextElementSibling;
-		content.style.maxHeight = content.style.maxHeight
-			? null
-			: content.scrollHeight + "px";
+		let desiredHeight = content.scrollHeight + "px";
+
+		content.style.minHeight =
+			content.style.minHeight == desiredHeight ? null : desiredHeight;
 	});
 });
-
-
-
