@@ -1,13 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
-@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,600;1,700&display=swap");
-
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 * {
 	box-sizing: border-box;
 	color: #767676;
-	/*font-family: "Titillium Web", sans-serif;*/
 	font-family: "Roboto", sans-serif;
 	margin: 0;
 	padding: 0;
@@ -16,31 +11,36 @@
 }
 
 :root {
-	--luckia: linear-gradient(266deg, #f80, #ea5b0c 53%, #dc4405);
+	--luckia: #ea5b0c;
+	--luckia-dark: #8d3707;
+	--luckia-light: #f5ad85;
+	--transparent: transparent;
+	--black: #000;
 	--white: #fff;
-	--darkgrey: #444444;
-	--grey: #efefef;
-	--lightgrey: #f9f9f9;
-	--darkFontColor: #767676;
-	--ceniza: #d6d6d6;
-	--orange: #ea5b0c;
+	--dark: #212121;
+	--antracita: #444;
+	--antracita-light: #767676;
+	--ceniza: #888;
+	--greyjoy-dark: #a5a5a5;
+	--greyjoy: #d6d6d6;
+	--magnolia: #efefef;
+	--magnolia-light: #f9f9f9;
 }
 
 body {
 	display: flex;
 	flex-direction: column;
-	background-color: var(--grey);
 	max-height: 712px;
 }
-/*::::: PAYMENTS :::::*/
+/*::::: 1#. PAYMENTS :::::*/
 .payments {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	height: 140px;
 	max-height: 140px;
-	background-color: var(--white);
+	background-color: var(--magnolia-light);
+	padding-bottom: 8px;
 }
 .payments__title--wrapper {
 	width: 65%;
@@ -68,29 +68,11 @@ body {
 	height: 18px;
 }
 
+/*::: 2#. SEOLINKS :::*/
+
 .seolinks {
+	background-color: var(--magnolia);
 }
-
-/*::: 1#. LOGO :::*/
-.seolinks__wrapper {
-}
-
-.seolinks__logo {
-}
-
-.seolinks__logo--img {
-}
-
-.seolinks__logo-list {
-}
-
-.seolinks__logo-list--item {
-}
-
-.seolinks__logo-list--icon {
-}
-
-/*::: 2#. APUESTAS :::*/
 
 .seolinks__bets {
 	max-height: 420px;
@@ -167,6 +149,21 @@ body {
 	height: 39px;
 }
 
+.seolinks__logo-list--icon {
+	cursor: pointer;
+	transition: transform 0.3s;
+}
+
+.seolinks__logo-list--icon:hover {
+	transform: scale(1.2);
+	opacity: 0.6;
+	transition: transform 0.3s;
+}
+
+.accordion__list--link:hover {
+	color: var(--antracita);
+}
+
 .seolinks__bets > .accordion:first-child > .accordion__header {
 	height: fit-content;
 }
@@ -216,7 +213,7 @@ body {
 	/*styles*/
 	transform: rotate(0deg);
 	transition: transform 0.45s ease-in-out;
-	fill: var(--darkFontColor);
+	fill: var(--antracita-light);
 }
 
 .accordion__body {
@@ -236,7 +233,7 @@ body {
 }
 
 .red {
-	background-color: var(--grey);
+	background-color: var(magnolia);
 }
 
 .seolinks__more {
@@ -276,7 +273,7 @@ body {
 
 .auth {
 	padding: 24px 19px 24px 17px;
-	background-color: var(--lightgrey);
+	background-color: var(magnolia-light);
 	width: 100%;
 }
 
@@ -308,6 +305,38 @@ body {
 }
 
 .auth__description--link {
+	color: var(--orange);
+	font-weight: bold;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.terms {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	background-color: #000;
+	padding: 14px 16px 18px 16px;
+}
+
+.terms__list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.terms__items {
+	width: fit-content;
+}
+
+.terms__links {
+	color: var(--white);
+	font-style: normal;
+	font-weight: normal;
+	font-size: 12px;
+	line-height: 16px;
 }
 
 @media only screen and (min-width: 688px) {
@@ -333,7 +362,12 @@ body {
 	.seolinks__more {
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: space-between;
+		flex-direction: column;
+	}
+
+	.seolinks__bets > .accordion:first-child > .acc__body > .accordion__list {
+		columns: unset;
+		gap: 168px;
 	}
 }
 
@@ -385,7 +419,7 @@ body {
 
 	.seolinks__logo-list {
 		padding-left: 0;
-		padding-right: 30px;
+		padding-right: 36px;
 	}
 
 	.seolinks__bets {
@@ -485,15 +519,17 @@ body {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		padding: 24px;
-		background-color: var(--lightgrey);
+		padding-top: 24px;
+		padding-bottom: 24px;
+		background-color: var(magnolia-light);
 		width: 100%;
 		height: 148px;
 		flex: 1;
 	}
 
 	.auth__logos {
-		padding-right: 16px;
+		padding-left: 36px;
+		padding-right: 36px;
 	}
 
 	.auth__logos--image:nth-child(1) {
@@ -514,7 +550,6 @@ body {
 		line-height: 20px;
 		max-width: 560px;
 		height: 100px;
-		padding-left: 16px;
 	}
 
 	.auth__description--link {
@@ -558,7 +593,14 @@ body {
 	}
 
 	.seolinks__bets > .accordion:first-child {
-		width: 350px;
+		width: auto;
+	}
+
+	.seolinks__bets
+		> .accordion:first-child
+		> .accordion__header
+		> .accordion__title {
+		padding-bottom: 8px;
 	}
 
 	.seolinks__bets > .accordion:first-child > .acc__body > .accordion__list {
@@ -568,29 +610,50 @@ body {
 		columns: 140px 2;
 	}
 
-	.seolinks__bets
-		> .accordion:first-child
-		> .accordion__header
-		> .accordion__title {
-		padding-bottom: 8px;
-	}
 	.seolinks__more {
 		flex: 3;
 		height: 328px;
 	}
+
+	.auth__logos {
+		justify-content: flex-start;
+		flex: 1;
+		max-width: 712px;
+	}
+
+	.auth__logos--image:nth-child(1) {
+		height: 72px;
+		padding-right: 18px;
+	}
+
+	.auth__logos--image:nth-child(2) {
+		height: 72px;
+		padding-left: 18px;
+	}
+
+	.auth__description {
+		display: flex;
+		flex: 1;
+		max-width: 557px;
+	}
 }
 
 @media only screen and (min-width: 1440px) {
-
 	.seolinks__wrapper {
 		flex: 2;
 	}
 
 	.seolinks__bets {
-		flex:3;
+		flex: 3;
 	}
 
 	.seolinks__more {
 		flex: 4;
+	}
+
+	.auth__logos {
+		padding-right: 135px;
+		flex: none;
+		gap: 15px;
 	}
 }
