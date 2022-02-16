@@ -32,7 +32,7 @@ const headerAccordion = document.querySelectorAll(".accordion__header");
 
 headerAccordion.forEach(accordion => {
 	accordion.addEventListener("click", function () {
-		this.classList.toggle("red");
+		this.classList.toggle("icon__rotate");
 		var content = this.nextElementSibling;
 		let desiredHeight = content.scrollHeight + "px";
 

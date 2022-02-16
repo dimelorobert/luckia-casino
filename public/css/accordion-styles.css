@@ -1,0 +1,117 @@
+/* ::: ACCORDION STYLES ::: 
+ to config COLUMNS accordion use property "columns" in accordion__list and assign it height or max-height property to accordion
+ */
+
+.accordion {
+	border-top: 1px solid var(--greyjoy);
+	width: 100%;
+	padding: 0 24px;
+}
+
+.accordion__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	cursor: pointer;
+}
+
+.accordion__title {
+	font-style: normal;
+	font-weight: bold;
+	font-size: 13px;
+	line-height: 16px;
+	padding-bottom: 4px;
+}
+
+.accordion__icon-wrapper {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.accordion__icon {
+	width: 10px;
+	margin: 8px 12px;
+	transform: rotate(0deg);
+	transition: transform 0.45s ease-in-out;
+	fill: var(--antracita-light);
+}
+
+/*:: Icon Rotation ::*/
+.accordion__header.icon__rotate div.accordion__icon-wrapper > .accordion__icon {
+	transform: rotate(-135deg);
+	transition: transform 0.45s ease-in-out;
+	fill: var(--luckia);
+}
+
+/* No accordion fx */
+.acc__body {
+	max-height: fit-content;
+	margin-bottom: 14px;
+}
+
+/* Accordion fx */
+.accordion__body {
+	max-height: 0;
+	min-height: 0;
+	overflow: hidden;
+	transition: min-height 0.45s ease-in-out;
+}
+
+.accordion__list--link {
+	font-style: normal;
+	font-weight: normal;
+	font-size: 13px;
+	line-height: 16px;
+}
+
+.accordion__list--link:hover {
+	color: var(--antracita);
+}
+
+.seolinks__bets > .accordion:first-child,
+.seolinks__more > .accordion:nth-child(1),
+.seolinks__more > .accordion:nth-child(2),
+.seolinks__more > .accordion:nth-child(3) {
+	border: none;
+	width: fit-content;
+}
+
+.seolinks__bets
+	> .accordion:first-child
+	> .accordion__header
+	> .accordion__icon-wrapper,
+.seolinks__more
+	> .accordion:nth-child(1)
+	> .accordion__header
+	> .accordion__icon-wrapper,
+.seolinks__more
+	> .accordion:nth-child(2)
+	> .accordion__header
+	> .accordion__icon-wrapper,
+.seolinks__more
+	> .accordion:nth-child(3)
+	> .accordion__header
+	> .accordion__icon-wrapper {
+	display: none;
+}
+
+@media only screen and (min-width: 1024px) {
+
+	.accordion {
+		border: none;
+		padding: 0;
+	}
+
+	.accordion__header {
+		pointer-events: none;
+	}
+
+	.accordion__icon-wrapper {
+		display: none;
+	}
+
+	.accordion__body {
+		max-height: fit-content;
+	}
+}
