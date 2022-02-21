@@ -1,0 +1,210 @@
+@using HSG.Common.Util;
+@using HSG.GameEngine.Seo.ApiClient;
+@using HSG.GameEngine.Internet.Infrastructure.Cache;
+@using HSG.GameEngine.Internet.Infrastructure.Enums;
+@using HSG.GameEngine.Internet.Infrastructure.Helpers;
+@using HSG.GameEngine.Seo.ApiClient.Models;
+@using HSG.GameEngine.Internet.Infrastructure.Services.SeoRoutesParameters;
+@using HSG.GameEngine.Seo.ApiClient.Models;
+
+@*
+    ██████╗ ███████╗ █████╗ ██████╗ ███╗   ███╗███████╗
+    ██╔══██╗██╔════╝██╔══██╗██╔══██╗████╗ ████║██╔════╝
+    ██████╔╝█████╗  ███████║██║  ██║██╔████╔██║█████╗
+    ██╔══██╗██╔══╝  ██╔══██║██║  ██║██║╚██╔╝██║██╔══╝
+    ██║  ██║███████╗██║  ██║██████╔╝██║ ╚═╝ ██║███████╗
+    ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═════╝ ╚═╝     ╚═╝╚══════╝
+
+
+*@
+
+@{
+
+    var accountHostname = ConfigurationHelper.AccountDesktopDomain();
+    var hostname = ConfigurationHelper.DesktopDomain();
+    var footerLinks = FooterLinksCache._classifiedFooter;
+    var betsFooterLinks = footerLinks["Sports"];
+    footerLinks.Remove("Sports");
+    var paymentSectionText = TextResources.FooterTextPayments;
+    var logoLuckia = "/Account/Content/images/logo.png";
+
+    @* *** PAYMENTS IMAGES FOOTER *** *@
+    Dictionary<string, string> paymentLogos = new Dictionary<string, string>();
+    paymentLogos.Add("Logo Baloto", "/Account/Content/images/footer/baloto.png");
+    paymentLogos.Add("Logo Master Card", "/Account/Content/images/footer/master-card.png");
+    paymentLogos.Add("Logo Pay U", "/Account/Content/images/footer/payu.png");
+    paymentLogos.Add("Logo Visa", "/Account/Content/images/footer/visa.png");
+    paymentLogos.Add("Logo PSE", "/Account/Content/images/footer/pse.png");
+    paymentLogos.Add("Logo Efecty", "/Account/Content/images/footer/efecty.png");
+    paymentLogos.Add("Logo PTM", "/Account/Content/images/footer/ptm.png");
+    paymentLogos.Add("Logo La Rebaja", "/Account/Content/images/footer/la-rebaja.png");
+
+    @* *** SOCIAL IMAGES FOOTER *** *@
+    Dictionary<string, string> socialLogos = new Dictionary<string, string>();
+    socialLogos.Add("Facebook Luckia", "/Account/Content/images/footer/facebook-icon.png");
+    socialLogos.Add("Twitter Luckia", "/Account/Content/images/footer/twitter-icon.png");
+    socialLogos.Add("Instagram Luckia", "/Account/Content/images/footer/instagram-icon.png");
+
+    @* *** AUTHGAME IMAGES FOOTER *** *@
+    Dictionary<string, string> authGameLogos = new Dictionary<string, string>();
+    authGameLogos.Add("Logo ColJuegos", "/Account/Content/images/footer/coljuegos.png");
+    authGameLogos.Add("Logo Juega Bien", "/Account/Content/images/footer/juega-bien.png");
+
+}
+
+
+
+<footer class="footer">
+
+    <div class="payments">
+        <div class="payments__title--wrapper">
+            <h2 class="payments__title">
+                @paymentSectionText
+            </h2>
+        </div>
+
+        <div class="payments__logo--wrapper">
+            <ul class="payments__list">
+                @foreach (var paylogo in paymentLogos)
+                {
+                    <li class="payments__items">
+                        <img src=@paylogo.Value alt=@paylogo.Key class="payments__images">
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+
+    <div class="seolinks">
+        <div class="seolinks__wrapper">
+            <div class="seolinks__logo">
+                <img src=@logoLuckia
+                     alt="Logo de Luckia"
+                     class="seolinks__logo--img" />
+            </div>
+
+            <ul class="seolinks__logo-list">
+                @foreach (var socialLogo in socialLogos)
+                {
+                    <li class="seolinks__logo-list--item">
+                        <img src=@socialLogo.Value
+                             alt=@socialLogo.Key
+                             class="seolinks__logo-list--icon" />
+                    </li>
+                }
+            </ul>
+        </div>
+
+        <div class="seolinks__bets">
+            <div class="accordion">
+                <div class="accordion__header">
+                    <h2 class="accordion__title">@TextResources.GroupSports</h2>
+                    <div class="accordion__icon-wrapper">
+                        <svg class="accordion__icon"
+                             viewBox="0 0 12 12"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             width="12px"
+                             height="12px">
+                            <path d="M11.343 5.06254H11.3437H6.93746V0.664585C6.93746 0.302634 6.64439 0 6.28244 0H5.71863C5.35678 0 5.06244 0.302634 5.06244 0.664585V5.06254H0.656293C0.294537 5.06254 0 5.35522 0 5.71727V6.28429C0 6.64605 0.294439 6.93746 0.656293 6.93746H5.06254V11.3513C5.06254 11.7131 5.35678 11.9999 5.71873 11.9999H6.28254C6.64449 11.9999 6.93756 11.713 6.93756 11.3513V6.93746H11.343C11.705 6.93746 12 6.64595 12 6.28429V5.71727C12 5.35522 11.705 5.06254 11.343 5.06254Z" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="acc__body">
+                    <ul class="accordion__list">
+                        @foreach (var betLink in betsFooterLinks)
+                        {
+                            <li>
+                                <a href=@betLink.Value class="accordion__list--link">@TextResourcesHelper.Get(@betLink.Key)</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="seolinks__more">
+            @foreach (var category in footerLinks)
+            {
+                <div class="accordion">
+                    <div class="accordion__header">
+                        <h2 class="accordion__title">@TextResourcesHelper.Get("Group" + category.Key)</h2>
+                        <div class="accordion__icon-wrapper">
+                            <svg class="accordion__icon"
+                                 viewBox="0 0 12 12"
+                                 fill="none"
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 width="12px"
+                                 height="12px">
+                                <path d="M11.343 5.06254H11.3437H6.93746V0.664585C6.93746 0.302634 6.64439 0 6.28244 0H5.71863C5.35678 0 5.06244 0.302634 5.06244 0.664585V5.06254H0.656293C0.294537 5.06254 0 5.35522 0 5.71727V6.28429C0 6.64605 0.294439 6.93746 0.656293 6.93746H5.06254V11.3513C5.06254 11.7131 5.35678 11.9999 5.71873 11.9999H6.28254C6.64449 11.9999 6.93756 11.713 6.93756 11.3513V6.93746H11.343C11.705 6.93746 12 6.64595 12 6.28429V5.71727C12 5.35522 11.705 5.06254 11.343 5.06254Z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="@(category.Key.Contains("Faq") || category.Key.Contains("Interested")?"accordion__body":"acc__body")">
+                        <ul class="accordion__list">
+                            @foreach (var categoryLink in category.Value)
+                            {
+                                <li class="accordion__list--item">
+                                    <a href=@categoryLink.Value class="accordion__list--link">@TextResourcesHelper.Get(@categoryLink.Key)</a>
+                                </li>
+                            }
+
+                        </ul>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="auth">
+        <div class="auth__logos">
+            @foreach (var authGameLogo in authGameLogos)
+            {
+                <img src=@authGameLogo.Value
+                     alt=@authGameLogo.Key
+                     class="auth__logos--image" />
+            }
+
+        </div>
+        <div class="auth__description">
+            <p class="auth__description--text">
+                @Html.Raw(TextResources.FooterTextAuthGame)
+            </p>
+        </div>
+    </div>
+
+    <div class="terms">
+        <ul class="terms__list">
+            <li class="terms__items">
+                <a class="terms__links" href='@AbsoluteURLSeoHelper.GetAccountUrlValue(AccessibleLocation.PrivacyPolicy)'>@TextResources.PrivacyNotice</a>
+            </li>
+            <li class="terms__items">
+                <a class="terms__links" href='@AbsoluteURLSeoHelper.GetAccountUrlValue(AccessibleLocation.LegalSelfexclusionform)' target="_blank">&nbsp;|&nbsp;@TextResources.StatementOnMeasuresOfPersonalDataProtection</a>
+            </li>
+            <li class="terms__items">
+                <a class="terms__links" href='@AbsoluteURLSeoHelper.GetAccountUrlValue(AccessibleLocation.ResponsibleGaming)'>&nbsp;|&nbsp;@TextResources.ResponsibleGaming</a>
+            </li>
+            <li class="terms__items">
+                <a class="terms__links" href='@AbsoluteURLSeoHelper.GetAccountUrlValue(AccessibleLocation.LegalSelfexclusionform)' target="_blank">&nbsp;|&nbsp;@TextResources.SelfExclusionLinkText</a>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        const headerAccordion = document.querySelectorAll(".accordion__header");
+        headerAccordion.forEach(accordion => {
+            accordion.addEventListener("click", function () {
+                this.classList.toggle("icon__rotate");
+                var content = this.nextElementSibling;
+                let desiredHeight = content.scrollHeight + "px";
+                content.style.minHeight = content.style.minHeight == desiredHeight
+                    ? null
+                    : desiredHeight
+            })
+        });
+    </script>
+
+</footer>
+
