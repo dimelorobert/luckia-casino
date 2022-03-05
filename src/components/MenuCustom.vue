@@ -1,14 +1,21 @@
 <template>
 	<nav class="menu">
-		<div class="menu__logo-container">
-			<h1 class="menu__logo-title">{{ title }}</h1>
+		<div class="menu__container">
+			<div class="menu__logo">
+			<a href="#"
+				><img
+					src="../assets/logo.png"
+					:alt="logoDescription"
+					class="menu__logo-img"
+			/></a>
 		</div>
-		<div class="menu__link-container">
-			<a href="#" class="menu__link">Home</a>
-			<a href="#" class="menu__link">Gallery</a>
-			<a href="#" class="menu__link">Videos</a>
-			<a href="#" class="menu__link">Contact</a>
-			<img src="../assets/menu.svg" alt="Boton menu" class="menu__button" />
+
+		<ul class="menu__list">
+			<li v-for="linky in links" :key="linky.id" class="menu__item">
+				<a :href="linky.href" class="menu__link">{{linky.name}}</a>
+				<span class="h"></span>
+			</li>
+		</ul>
 		</div>
 	</nav>
 </template>
@@ -18,8 +25,16 @@ export default {
 	name: "MenuCustom",
 	data() {
 		return {
-			title: "Luis Quintero",
+			title: "xxxx xxxx",
 			screenWidth: "",
+			logoDescription: "Descripcion del logo",
+			links: [
+				{ name: "HOME", href: "#" },
+				{ name: "ABOUT ME", href: "#" },
+				{ name: "HIGHLIGHTS", href: "#" },
+				{ name: "GALLERY", href: "#" },
+				{ name: "CONTACT", href: "#" },
+			],
 		};
 	},
 	watch: {
@@ -65,73 +80,61 @@ export default {
 
 .menu {
 	display: flex;
-	justify-content: space-around;
+	justify-content: center;
 	align-items: center;
+	background-color: #000000;
+	height: 70px;
 	width: 100%;
-	height: 80px;
-	background: #000101;
-	position: sticky;
-	top: 0;
-	color: #fff;
-	z-index: 99;
 }
 
-.menu__logo-container {
-	width: 40%;
-}
-
-.menu__link-container {
+.menu__container {
 	display: flex;
-	width: 40%;
 	justify-content: space-around;
+	max-height: 70px;
+	width: 100%;
+}
+
+.menu__logo {
+	display: inline-flex;
+	align-items: flex-start;
+	justify-content: center;
+	flex-direction: column;
+	height: 70px;
+}
+
+.menu__logo-img {
+	height: 40px;
+}
+
+.menu__list {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	list-style: none;
+	height: 70px;
+	gap: 24px;
+}
+
+.menu__list > li[class="menu__item"] {
+}
+
+.menu__item {
 }
 
 .menu__link {
-	color: #fff;
+	color: #ffffff;
 	text-decoration: none;
-	font-family: 'Montserrat', sans-serif;/*"Poppins";*/
-	font-weight: 400;
-	font-display: swap;
-	font-size: 15px;
 }
 
-.menu__button {
-	display: none;
-	width: 35px;
-	cursor: pointer;
+.menu__link:hover {
+	color: #fffb00;
+	text-decoration: none;
+	
 }
 
-.menu__logo-title {
-	display: inline-flex;
-	font-family: "Poppins";
-	font-weight: 600;
-	font-style: normal;
-	font-display: swap;
-}
-
-@media only screen and (max-width: 767px) {
-	.menu__logo-container {
-		display: flex;
-		justify-content: space-around;
-	}
-
-	.menu__logo-container:nth-child(1) {
-		width: 80%;
-	}
-
-	.menu__logo-container:nth-child(2) {
-		width: 20%;
-	}
-	.menu__link-container {
-		justify-content: center;
-	}
-	.menu__link {
-		display: none;
-	}
-
-	.menu__button {
-		display: block;
-		filter: invert(100%);
-	}
+.h {
+	color: red;
+	content: "·";
+	font-size: 20px;
 }
 </style>

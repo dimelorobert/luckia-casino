@@ -6,14 +6,14 @@
 		<!-- <Registro :user="user" /> -->
 		<MenuCustom />
 		<!-- <Slider class="h-slider" /> -->
-		<Accordion class="h-accordion" />
+		<!-- <Accordion class="h-accordion" /> -->
 		<!-- <Accordion class="h-accordion" />
 		<VideoShort />
 		<Bio /> -->
 		<!-- <Score /> -->
 		<!-- <Link :href="href" :text="text" :style="styles" /> -->
 		<!-- <Button :text="textBtn" :type="typeBtn" /> -->
-		<Footer />
+		<!-- <Footer /> -->
 	</div>
 </template>
 
@@ -109,10 +109,10 @@ export default {
 <style scoped>
 .home {
 	align-items: center;
-	background: #000101;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-start;
+	height: 100vh;
 }
 
 /*.h-slider {

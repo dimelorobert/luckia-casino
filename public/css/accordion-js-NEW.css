@@ -37,10 +37,15 @@
 	--xxl-size: 64px;
 }
 
+.margin {
+	margin: auto 160px;
+}
+
 body {
 	display: flex;
 	flex-direction: column;
 	max-height: 712px;
+	background-color: var(--magnolia);
 }
 
 /*::::: 1#. PAYMENTS :::::*/
