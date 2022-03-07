@@ -6,10 +6,9 @@
 		<!-- <Registro :user="user" /> -->
 		<MenuCustom />
 		<!-- <Slider class="h-slider" /> -->
-		<!-- <Accordion class="h-accordion" /> -->
-		<!-- <Accordion class="h-accordion" />
-		<VideoShort />
-		<Bio /> -->
+		<Accordion class="h-accordion" />
+		<!-- <VideoShort />
+		<Bio /> --> 
 		<!-- <Score /> -->
 		<!-- <Link :href="href" :text="text" :style="styles" /> -->
 		<!-- <Button :text="textBtn" :type="typeBtn" /> -->
