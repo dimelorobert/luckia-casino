@@ -54,11 +54,30 @@ export default {
 /* @import "../node_modules/bulma/css/bulma.css";
 @import '../node_modules/bulma/sass/utilities/_all.sass'; */
 :root {
+	/* :::::::::: WEB COLORS :::::::::: */
 	--green: #659082;
 	--greenh: #bccfc9;
-	--white: ##fdfdfd;
+	--white: #fdfdfd;
 	--grey: #f1f1f1;
 	--salmon: #f4ac9e;
+	--luckia: #ea5b0c;
+	--luckia-dark: #8d3707;
+	--luckia-light: #f5ad85;
+	--basket: #f80;
+	--luckia-old: #dc4405;
+
+	/* :::::::::: WEB SIZES :::::::::: */
+	--xs: 8px;
+	--s: 16px;
+	--m: 24px;
+	--l: 32px;
+	--x: 40px;
+	--xl: 48px;
+	--xxl: 56px;
+	--xxl: 64px;
+	--xxxl: 72px;
+	--xxxxl: 80px;
+	--total: 100%;
 }
 
 * {

@@ -35,7 +35,6 @@
 				<p class="accordion__description">{{ descriptionLimiter }}</p>
 			</a>
 		</article>
-		
 	</div>
 </template>
 
@@ -44,11 +43,18 @@ export default {
 	name: "Accordion",
 	data() {
 		return {
-			description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
+			articles: [
+				{
+					image: "../assets/lu1.jpg",
+					url: "#",
+					title: "Titulo Luisito H3",
+					description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
 					dolores voluptates rem ea eaque sunt nulla ut dolorum asperiores
 					aut eius ipsa obcaecati natus, earum error consequatur eum! Vero,
 					totam?`,
-			readMore: "Seguir leyendo ➔",
+					readMore: "Seguir leyendo ➔",
+				},
+			],
 		};
 	},
 	computed: {

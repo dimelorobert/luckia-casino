@@ -1,33 +1,31 @@
 <template>
 	<nav class="menu">
-		<div class="menu__container">
-			<div class="menu__logo">
-				<a href="#"
-					><img
-						src="../assets/logo.png"
-						:alt="logoDescription"
-						class="menu__logo-img"
-				/></a>
-			</div>
+		<!-- LOGO -->
+		<div class="menu__logo">
+			<a @click="menu" class="menu__logo--link" href="#">
+				<img :src="logo" :alt="logoDescription" class="menu__logo--img" />
+				<h1 class="menu__logo--title" v-if="hasTitle">{{ titlePage }}</h1>
+			</a>
 		</div>
+		<!-- END LOGO -->
 
 		<!-- BURGER BUTTON -->
-		<div @click="menu" class="burger">
-			<div class="strip burger-strip">
-				<div class="bar"></div>
-				<div class="bar"></div>
-				<div class="bar"></div>
+		<div @click="menu" class="menu__burger">
+			<div class="menu__strip menu__burger--strip">
+				<div class="menu__bar"></div>
+				<div class="menu__bar"></div>
+				<div class="menu__bar"></div>
 			</div>
 		</div>
 		<!-- END BURGER BUTTON -->
 
-		<!-- MENU LIST -->
+		<!-- LINKS -->
 		<ul class="menu__list">
-			<li v-for="linky in links" :key="linky.id" class="menu__item">
-				<a :href="linky.href" class="menu__link">{{ linky.name }}</a>
+			<li v-for="linky in links" :key="linky.id" class="menu__list--item">
+				<a :href="linky.href" class="menu__list--link">{{ linky.name }}</a>
 			</li>
 		</ul>
-		<!-- END MENU LIST -->
+		<!-- END LINKS -->
 	</nav>
 </template>
 
@@ -36,31 +34,46 @@ export default {
 	name: "MenuCustom",
 	data() {
 		return {
-			title: "xxxx xxxx",
-			screenWidth: "",
-			logoDescription: "Descripcion del logo",
+			titlePage: "",
+			logo: require("../../public/logo-luckia.svg"),
+			iconClose: require("../../public/x-square-fill.svg"),
+			logoDescription: "Logo de la Web",
 			links: [
-				{ name: "HOME", href: "#" },
-				{ name: "ABOUT ME", href: "#" },
-				{ name: "HIGHLIGHTS", href: "#" },
-				{ name: "GALLERY", href: "#" },
-				{ name: "CONTACT", href: "#" },
+				{ name: "Home", href: "#" },
+				{ name: "About me", href: "http://172.21.2.38:8080/" },
+				{ name: "Hightlights", href: "#" },
+				{ name: "Gallery", href: "#" },
+				{ name: "Contact", href: "#" },
 			],
+			showTitle: true,
+			screen: window.innerWidth,
 		};
 	},
-	watch: {},
-	computed: {},
+	watch: {
+		screen(val1, val2) {
+			console.log(val1, val2);
+		},
+	},
+	computed: {
+		hasTitle() {
+			return this.titlePage.match(/^\s/g) || this.titlePage.length <= 0
+				? false
+				: true;
+		},
+	},
 	methods: {
 		menu() {
 			const menuList = document.querySelector(".menu__list");
-			const bool = menuList.classList.toggle("show");
-			let bar1 = document.querySelector(".bar:first-child");
-			let bar2 = document.querySelector(".bar:nth-child(2)");
-			let bar3 = document.querySelector(".bar:last-child");
-			bar1.classList.toggle("bar1");
-			bar2.classList.toggle("bar2");
-			bar3.classList.toggle("bar3");
+			menuList.classList.toggle("menu__show");
+			let bar1 = document.querySelector(".menu__bar:first-child");
+			let bar2 = document.querySelector(".menu__bar:nth-child(2)");
+			let bar3 = document.querySelector(".menu__bar:last-child");
+			bar1.classList.toggle("menu__bar1");
+			bar2.classList.toggle("menu__bar2");
+			bar3.classList.toggle("menu__bar3");
 		},
+
+		
 	},
 };
 </script>
@@ -68,22 +81,47 @@ export default {
 <style scoped>
 @import url("../../public/font/stylesheet.css");
 
+:root {
+	--white: #ffffff;
+}
+
 .menu {
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
-	background-color: #000000;
-	height: 70px;
-	width: 100%;
-	position: inherit;
-	padding: 40px;
+	background: black;
+	height: var(--xxxxl);
+	justify-content: space-around;
+	width: 100vw;
+}
+
+/* :::::::::: LOGO :::::::::: */
+
+.menu__logo {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+}
+
+.menu__logo--img {
+	height: 32px;
+}
+
+.menu__logo--link {
+	color: var(--white);
+	text-decoration: none;
+}
+
+.menu__logo--title {
+	display: none;
+	font-size: 16px;
+	text-align: center;
 }
 
 /* :::::::::: BURGER BUTTON :::::::::: */
-.burger {
-	width: 40px;
-	height: 35px;
-	border-radius: 8px;
+.menu__burger {
+	width: 32px;
+	height: 32px;
+	border-radius: 2px;
 	background: white;
 	cursor: pointer;
 	display: flex;
@@ -92,7 +130,7 @@ export default {
 	transition: all 0.5s ease;
 }
 
-.burger-strip {
+.menu__burger--strip {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -100,97 +138,58 @@ export default {
 	transition: all 0.5s ease;
 }
 
-.strip .bar {
-	height: 3px;
+.menu__strip .menu__bar {
+	height: 2px;
 	border-radius: 8px;
 	background: rgb(56 56 56);
 	margin: 2px;
 	transition: all 0.55s cubic-bezier(0.075, 0.82, 0.165, 1);
-	width: 15px;
+	width: 16px;
 }
 
-.bar1 {
-	transform: translateY(7px) rotate(45deg);
+.menu__bar1 {
+	transform: translateY(6px) rotate(45deg);
 }
 
-.bar2 {
+.menu__bar2 {
 	opacity: 0;
 }
 
-.bar3 {
-	transform: translateY(-7px) rotate(-45deg);
+.menu__bar3 {
+	transform: translateY(-6px) rotate(-45deg);
 }
 
-/* :::::::::: STYLES :::::::::: */
-
-.menu__container {
-	display: flex;
-	justify-content: space-around;
-	max-height: 50px;
-}
-
-.menu__logo {
-	align-items: flex-start;
-	display: inline-flex;
-	flex-direction: column;
-	justify-content: center;
-	height: 50px;
-}
-
-.menu__logo-img {
-	height: 40px;
-}
-
+/* :::::::::: LINKS :::::::::: */
 .menu__list {
 	align-items: center;
-	background-image: url("../assets/papyrus-dark.png");
-	background-size: 150px;
-	bottom: 400px;
+	background-color: black;
 	display: flex;
-	filter: brightness(250%);
 	flex-direction: column;
-	gap: 32px;
+	gap: 24px;
+	height: calc(100vh - var(--xxxxl));
 	justify-content: center;
-	left: 0;
 	list-style: none;
 	opacity: 0;
-	overflow: hidden;
 	position: absolute;
-	right: 0;
 	top: 70px;
-	transition: bottom .65s ease-in-out;
-	z-index: 99;
+	transition: opacity 0.55s ease-in-out;
+	width: 100vw;
+	padding-bottom: 70px;
 }
 
-.show {
-	bottom: 0;
+.menu__show {
 	opacity: 1;
-	transition: bottom .75s ease-in-out, opacity .75s ease-in-out;
+	transition: opacity 0.45s ease-in-out;
 }
 
-.menu__list > li > a {
-	color: white;
-	font-size: 1rem;
+.menu__list--link {
+	color: var(--white);
 	text-decoration: none;
 }
 
-@media only screen and (min-width: 1024px) {
-	.menu__container {
-		display: flex;
-		flex: 1;
-	}
-
-	.burger {
-		display: none;
-	}
-
-	.menu__list {
-		background-image: unset;
-		flex-direction: row;
-		flex: 2;
-		opacity: 1;
-		position: unset;
-		z-index: 0;
+@media only screen and (min-width: 1200px) {
+	.menu__logo--link {
+		pointer-events: none;
 	}
 }
 </style>
