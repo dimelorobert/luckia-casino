@@ -21,7 +21,11 @@
 
 		<!-- LINKS -->
 		<ul class="menu__list">
-			<li v-for="linky in links" :key="linky.id" class="menu__list--item">
+			<li
+				v-for="linky in links"
+				:key="linky.id"
+				class="menu__list--item hoverMTop"
+			>
 				<a :href="linky.href" class="menu__list--link">{{ linky.name }}</a>
 			</li>
 		</ul>
@@ -63,17 +67,24 @@ export default {
 	},
 	methods: {
 		menu() {
-			const menuList = document.querySelector(".menu__list");
-			menuList.classList.toggle("menu__show");
+			let menuList = document.querySelector(".menu__list");
+			let mobileMenuIsOpen = menuList.classList.toggle("menu__show");
+			let barsBurger = document.querySelectorAll(".menu__bar");
 			let bar1 = document.querySelector(".menu__bar:first-child");
 			let bar2 = document.querySelector(".menu__bar:nth-child(2)");
 			let bar3 = document.querySelector(".menu__bar:last-child");
+
+			mobileMenuIsOpen
+				? barsBurger.forEach(bar => {
+						bar.style.backgroundColor = "red";
+				  })
+				: barsBurger.forEach(bar => {
+						bar.style.backgroundColor = "grey";
+				  });
 			bar1.classList.toggle("menu__bar1");
 			bar2.classList.toggle("menu__bar2");
 			bar3.classList.toggle("menu__bar3");
 		},
-
-		
 	},
 };
 </script>
@@ -141,13 +152,14 @@ export default {
 .menu__strip .menu__bar {
 	height: 2px;
 	border-radius: 8px;
-	background: rgb(56 56 56);
+	background-color: grey;
 	margin: 2px;
 	transition: all 0.55s cubic-bezier(0.075, 0.82, 0.165, 1);
 	width: 16px;
 }
 
 .menu__bar1 {
+	background-color: yellow;
 	transform: translateY(6px) rotate(45deg);
 }
 
@@ -156,6 +168,7 @@ export default {
 }
 
 .menu__bar3 {
+	background-color: yellow;
 	transform: translateY(-6px) rotate(-45deg);
 }
 
@@ -182,9 +195,36 @@ export default {
 	transition: opacity 0.45s ease-in-out;
 }
 
+.menu__list--item {
+	display: inline-block;
+	height: 32px;
+	border: 0;
+	position: relative;
+}
+
+.menu__list--link:hover {
+	color: rgb(229, 255, 0);
+}
+
 .menu__list--link {
 	color: var(--white);
 	text-decoration: none;
+}
+
+.hoverMTop:after {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	top: 100%;
+	width: 0;
+	height: 2px;
+	background-color: rgb(229, 255, 0);
+	display: block;
+	content: "";
+	transition: width 0.45s ease-in-out;
+}
+.hoverMTop:hover:after {
+	width: 100%;
 }
 
 @media only screen and (min-width: 1200px) {
