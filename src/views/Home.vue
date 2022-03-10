@@ -6,7 +6,7 @@
 		<!-- <Registro :user="user" /> -->
 		<MenuCustom />
 		<!-- <Slider class="h-slider" /> -->
-		<!-- <Accordion class="h-accordion" /> -->
+		<Accordion />
 		<!-- <VideoShort />
 		<Bio /> --> 
 		<!-- <Score /> -->

@@ -65,6 +65,7 @@ export default {
 	--luckia-light: #f5ad85;
 	--basket: #f80;
 	--luckia-old: #dc4405;
+	--themeColor: rgb(229, 255, 0);
 
 	/* :::::::::: WEB SIZES :::::::::: */
 	--xs: 8px;
