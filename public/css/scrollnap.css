@@ -1,0 +1,25 @@
+.container {
+   display: flex;
+   overflow: auto;
+   scroll-snap-type: x mandatory;
+   scrollbar-width: none;
+}
+
+.container>.item {
+   min-width: 100%;
+   scroll-snap-align: start;
+   height: 500px;
+
+}
+
+.item:first-child {
+   background-color: aquamarine;
+}
+
+.item:nth-child(2) {
+   background-color: salmon;
+}
+
+.item:last-child {
+   background-color: greenyellow;
+}
