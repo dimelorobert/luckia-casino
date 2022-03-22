@@ -35,7 +35,7 @@ export default {};
 	height: 100vh;
 	width: 100%;
 	background: url("../assets/preview.jpg");
-   background-position: top center;
+	background-position: top center;
 	background-size: cover;
 	background-repeat: no-repeat;
 }
@@ -53,7 +53,7 @@ export default {};
 
 .video1 {
 	position: relative;
-	right:45rem;
+	right: 45rem;
 	top: 5rem;
 	width: 720px;
 }
@@ -91,7 +91,7 @@ export default {};
 	color: #fff;
 	border: 2px solid #fff;
 	border-radius: 2rem;
-	padding: .5rem 1rem;
+	padding: 0.5rem 1rem;
 	width: 50%;
 }
 </style>

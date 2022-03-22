@@ -81,7 +81,6 @@ export default {
 	text-align: center;
 	text-justify: inter-word;
 	padding: 0 1.5rem;
-	
 }
 .sponsor__button {
 	display: flex;
@@ -106,18 +105,15 @@ export default {
 	}
 
 	.sponsor__description {
-		font-size: .95rem;
+		font-size: 0.95rem;
 		padding: 0 1rem;
 		text-align: left;
-		text-justify: newspaper ;
+		text-justify: newspaper;
 	}
 }
 
-
-
 @media only screen and (min-width: 768px) {
 	.sponsor__description {
-
 		max-width: 720px;
 	}
 }

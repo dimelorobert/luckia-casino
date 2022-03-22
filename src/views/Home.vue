@@ -8,7 +8,7 @@
 		<!-- <Slider class="h-slider" /> -->
 		<Accordion />
 		<!-- <VideoShort />
-		<Bio /> --> 
+		<Bio /> -->
 		<!-- <Score /> -->
 		<!-- <Link :href="href" :text="text" :style="styles" /> -->
 		<!-- <Button :text="textBtn" :type="typeBtn" /> -->
@@ -108,6 +108,9 @@ export default {
 <style scoped>
 .home {
 	align-items: center;
+	background-image: url("../assets/night-stadium.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;

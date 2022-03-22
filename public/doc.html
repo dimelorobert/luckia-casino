@@ -1,69 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./styles.css" />
+		<title>Consentimiento Innova Pro SHR</title>
+	</head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles.css">
-    <title>Consentimiento Innova Pro SHR</title>
-</head>
+	<body class="body">
+		<header class="header">
+			<div class="logo">
+				<img
+					class="logo__img"
+					src="../src/assets/innovapro.png"
+					alt="Logo innovapro"
+				/>
+			</div>
+		</header>
+		<div class="banner">
+			<h1 class="title">CUESTIONARIO DE ACEPTACIÓN DE SHR</h1>
+			<p class="subtitle">
+				<strong>(Confidencial, prohibida su reproducción o copia)</strong>
+			</p>
+		</div>
+		<div class="data">
+			<div class="data__user-data">
+				<p>Nombre y Apellidos:</p>
+				<p>Dirección:</p>
+				<p>D.N.I: <span>Genero:</span><span>Edad:</span></p>
+				<p>Telefono de contacto: <span>Fecha:</span></p>
+			</div>
+			<p>
+				Responda SI o NO. En caso de que la respuesta sea SI, desarrollar en
+				observaciones.
+			</p>
+			<ol>
+				<li>
+					Su estado de salud es: EXCELENTE/ BUENO/ REGULAR/ DEFICIENTE
+				</li>
+				<li>¿Ha recibido anteriormente un tratamiento con LÁSER O IPL?</li>
+				<li>
+					Si la respuesta anterior ha sido SI, ¿el tratamiento le causó
+					algún efecto secundario?
+				</li>
+				<li>¿Es usted alérgico a algún medicamento o cosmético?</li>
+				<li>
+					¿Padece o ha padecido alguna alteración o enfermedad cutánea?
+				</li>
+				<li>¿Su piel cicatriza con normalidad?</li>
+				<li>¿Su piel tiende a la aparición de manchas?</li>
+				<li>¿Sufre o ha sufrido alguna enfermedad cancerígena?</li>
+				<li>¿Es usted diabético?</li>
+				<li>. ¿Es usted epiléptico?</li>
+				<li>¿Padece usted algún problema circulatorio?</li>
+				<li>¿Padece usted alguna dolencia cardiaca?</li>
+				<li>¿Padece usted problemas de tensión?</li>
+				<li>¿Es usted portador de marcapasos?</li>
+				<li>¿Padece usted algún problema hormonal?</li>
+				<li>¿Padece usted alguna enfermedad?</li>
+				<li>¿Está usted embarazada o en periodo de lactancia?</li>
+				<li>¿Toma algún medicamento de forma continuada?</li>
+				<li>¿Toma alguna sustancia fotosensibilizante?</li>
+				<li>
+					¿Cuánto tiempo ha transcurrido después de su última exposición
+					solar?
+				</li>
+			</ol>
+		</div>
 
-<body class="body">
-    <header class="header">
-        <div class="logo">
-            <img class="logo__img" src="../src/assets/innovapro.png" alt="Logo innovapro">
-        </div>
+		<img src="" alt="Firma del usuario" id="firma" />
+		<br />
 
-    </header>
-    <div class="banner">
-        <h1 class="title">CUESTIONARIO DE ACEPTACIÓN DE SHR</h1>
-        <p class="subtitle"><strong >(Confidencial, prohibida su reproducción o copia)</strong></p>
-    </div>
-    <div class="data">
-        <div class="data__user-data">
-            <p>Nombre y Apellidos:</p>
-        <p>Dirección:</p>
-        <p>D.N.I:  <span>Genero:</span><span>Edad:</span></p>
-        <p>Telefono de contacto: <span>Fecha:</span></p>
-        </div>
-        <p>Responda SI o NO. En caso de que la respuesta sea SI, desarrollar en observaciones.</p>
-        <ol>
-            <li>Su estado de salud es: EXCELENTE/ BUENO/ REGULAR/ DEFICIENTE</li>
-            <li>¿Ha recibido anteriormente un tratamiento con LÁSER O IPL?</li>
-            <li>Si la respuesta anterior ha sido SI, ¿el tratamiento le causó algún efecto
-secundario? </li>
-            <li>¿Es usted alérgico a algún medicamento o cosmético?</li>
-            <li>¿Padece o ha padecido alguna alteración o enfermedad cutánea?</li>
-            <li>¿Su piel cicatriza con normalidad?</li>
-            <li>¿Su piel tiende a la aparición de manchas?</li>
-            <li>¿Sufre o ha sufrido alguna enfermedad cancerígena?</li>
-            <li>¿Es usted diabético?</li>
-            <li>. ¿Es usted epiléptico?</li>
-            <li>¿Padece usted algún problema circulatorio?</li>
-            <li>¿Padece usted alguna dolencia cardiaca?</li>
-            <li>¿Padece usted problemas de tensión?</li>
-            <li> ¿Es usted portador de marcapasos?</li>
-            <li>¿Padece usted algún problema hormonal? </li>
-            <li>¿Padece usted alguna enfermedad?</li>
-            <li>¿Está usted embarazada o en periodo de lactancia?</li>
-            <li>¿Toma algún medicamento de forma continuada?</li>
-            <li>¿Toma alguna sustancia fotosensibilizante?</li>
-            <li>¿Cuánto tiempo ha transcurrido después de su última exposición solar?</li>
-        </ol>
-
-    </div>
-    
-    <img src="" alt="Firma del usuario" id="firma">
-    <br>
-    
-    <script>
-        if (window.opener) {
-            document.querySelector("#firma").src = window.opener.obtenerImagen();
-            // Imprimir documento. Si no quieres imprimir, remueve la siguiente línea
-            window.print();
-        }
-    </script>
-</body>
-
+		<script>
+			if (window.opener) {
+				document.querySelector("#firma").src =
+					window.opener.obtenerImagen();
+				// Imprimir documento. Si no quieres imprimir, remueve la siguiente línea
+				window.print();
+			}
+		</script>
+	</body>
 </html>

@@ -2,20 +2,20 @@
 	<nav class="menu">
 		<div class="menu__container">
 			<div class="menu__logo">
-			<a href="#"
-				><img
-					src="../assets/logo.png"
-					:alt="logoDescription"
-					class="menu__logo-img"
-			/></a>
-		</div>
+				<a href="#"
+					><img
+						src="../assets/logo.png"
+						:alt="logoDescription"
+						class="menu__logo-img"
+				/></a>
+			</div>
 
-		<ul class="menu__list">
-			<li v-for="linky in links" :key="linky.id" class="menu__item">
-				<a :href="linky.href" class="menu__link">{{linky.name}}</a>
-				<span class="h"></span>
-			</li>
-		</ul>
+			<ul class="menu__list">
+				<li v-for="linky in links" :key="linky.id" class="menu__item">
+					<a :href="linky.href" class="menu__link">{{ linky.name }}</a>
+					<span class="h"></span>
+				</li>
+			</ul>
 		</div>
 	</nav>
 </template>
@@ -129,7 +129,6 @@ export default {
 .menu__link:hover {
 	color: #fffb00;
 	text-decoration: none;
-	
 }
 
 .h {

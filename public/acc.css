@@ -179,7 +179,6 @@ body {
 	.footer__logo-container {
 		flex-wrap: nowrap;
 		width: fit-content;
-		
 	}
 
 	.footer__section-links {
@@ -192,17 +191,8 @@ body {
 	}
 }
 
-
-
-
 .s-footer {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: repeat(3, 1fr);
 }
-
-
-
-
-
-

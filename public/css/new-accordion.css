@@ -54,9 +54,8 @@
 	pointer-events: none;
 }
 
-
 .svg--rotate {
-transform: rotate(-225deg);
+	transform: rotate(-225deg);
 	transition: transform 0.6s;
 }
 

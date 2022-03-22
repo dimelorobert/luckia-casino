@@ -179,7 +179,7 @@ select {
 }
 
 option:after {
-   border-radius: 1rem;
+	border-radius: 1rem;
 	width: 150px;
 }
 
@@ -253,7 +253,7 @@ button {
 	background-color: var(--green);
 	border: none;
 	cursor: pointer;
-   font-size: 1rem;
+	font-size: 1rem;
 	font-weight: 600;
 	outline: none;
 	padding: 0.5rem 1rem;

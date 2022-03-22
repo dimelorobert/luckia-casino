@@ -1,16 +1,11 @@
 <template>
-	<div id="slider" class="slider">
-	
-	
-	</div>
+	<div id="slider" class="slider"></div>
 </template>
 
 <script>
 export default {
-   name: "Slider"
+	name: "Slider",
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

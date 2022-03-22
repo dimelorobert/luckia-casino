@@ -23,10 +23,9 @@ export default {
 <style scoped>
 .footer {
 	display: flex;
-   background-color: #EFEFEF;
+	background-color: #efefef;
 }
 
 .footer__items {
-   
 }
 </style>

@@ -16,9 +16,7 @@
 					autocomplete="off"
 				/>
 			</div>
-		
 
-		
 			<div class="child-f-row">
 				<label class="label" for="email">Email</label>
 				<input

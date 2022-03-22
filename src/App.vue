@@ -53,6 +53,7 @@ export default {
 <style>
 /* @import "../node_modules/bulma/css/bulma.css";
 @import '../node_modules/bulma/sass/utilities/_all.sass'; */
+@import "../public/font/interfont.css";
 :root {
 	/* :::::::::: WEB COLORS :::::::::: */
 	--green: #659082;
@@ -65,7 +66,8 @@ export default {
 	--luckia-light: #f5ad85;
 	--basket: #f80;
 	--luckia-old: #dc4405;
-	--themeColor: rgb(229, 255, 0);
+	--themeColor: #daa520;
+	--darkColor: #000000;
 
 	/* :::::::::: WEB SIZES :::::::::: */
 	--xs: 8px;
@@ -96,8 +98,9 @@ body {
 } */
 
 #app {
-	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Avenir, Helvetica, Arial, sans-serif; */
+	font-family: "Inter", Tahoma, Geneva, Verdana, sans-serif; /* Avenir, Helvetica, Arial, sans-serif; */
 	-webkit-font-smoothing: antialiased;
+	background-color: var(--darkColor);
 }
 
 @media only screen and (min-width: 1024px) {

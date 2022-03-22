@@ -63,7 +63,6 @@ export default {
 @media only screen and (max-width: 320px) {
 	.button {
 		padding: 0.8rem 4.5%;
-		
 	}
 }
 </style>

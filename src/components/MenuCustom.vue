@@ -123,12 +123,11 @@ export default {
 				? barsBurger.forEach(bar => {
 						// bar.style.backgroundColor = "red";
 						burger.style.backgroundColor = "var(--themeColor)";
-						burger.style.borderRadius = "50%";
+						// burger.style.borderRadius = "50%";
 				  })
 				: barsBurger.forEach(bar => {
-						bar.style.backgroundColor = "black";
-						burger.style.backgroundColor = "var(--white)";
-						burger.style.borderRadius = "";
+						bar.style.backgroundColor = "var(--darkColor)";
+						burger.style.backgroundColor = "var(--themeColor)";
 				  });
 			bar1.classList.toggle("menu__bar1");
 			bar2.classList.toggle("menu__bar2");
@@ -144,7 +143,7 @@ export default {
 .menu {
 	display: flex;
 	align-items: center;
-	background: black;
+	background: var(--darkColor);
 	height: 80px;
 	justify-content: space-around;
 	width: 100vw;
@@ -192,7 +191,7 @@ export default {
 .menu__strip .menu__bar {
 	height: 2px;
 	border-radius: 8px;
-	background-color: black;
+	background-color: var(--darkColor);
 	margin: 2px;
 	transition: all 0.55s cubic-bezier(0.075, 0.82, 0.165, 1);
 	width: 16px;
@@ -212,7 +211,7 @@ export default {
 /* :::::::::: LINKS :::::::::: */
 .menu__list {
 	align-items: center;
-	background-color: black;
+	background-color: var(--darkColor);
 	display: flex;
 	flex-direction: column;
 	gap: 24px;
@@ -220,20 +219,21 @@ export default {
 	justify-content: center;
 	list-style: none;
 	opacity: 0;
-	position: absolute; 
+	position: absolute;
 	top: 80px;
 	left: 0;
 	right: 0;
 	bottom: 0;
 	transform: translateX(-100%);
-	transition: opacity 0.55s ease-in-out;
+	transition: opacity 0.65s ease-in-out;
 	width: 100vw;
 	padding-bottom: 70px;
+	z-index: 99;
 }
 .menu__show {
 	opacity: 1;
-	transform: translateX(0%);
-	transition: opacity 0.45s ease-in-out;
+	transform: translateY(0%);
+	transition: opacity 0.35s ease-in-out;
 }
 .menu__list--item {
 	display: inline-block;

@@ -1,7 +1,6 @@
 // Browsers you can use
 const { webkit, chromium, firefox } = require("playwright");
 
-
 // https://oxylabs.io/blog/playwright-web-scraping
 
 // URL we want to visit

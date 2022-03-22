@@ -119,6 +119,5 @@ export default {
 	.menu__logo--link {
 		pointer-events: none;
 	}
-
 }
 </style>

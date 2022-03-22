@@ -1,7 +1,12 @@
 <template>
 	<div class="accordion">
 		<article class="accordion__slide">
-			<!-- <img class="accordion__image" src="../assets/lu2.jpg" alt="" /> -->
+			<!-- <img class="accordion__image" src="../assets/lu2.jpg" alt="" />  -->
+			<a class="accordion__link" href="#"
+				><h3 class="accordion__title">Titulo Luisito H3</h3>
+				<p class="accordion__description">lorem10 regrh trhtr htr trh</p>
+			</a>
+
 			<video
 				autoplay="true"
 				loop
@@ -9,30 +14,26 @@
 				src="../assets/nike-shot.mp4"
 				class="accordion__image"
 			></video>
-			<a class="accordion__link" href="#"
-				><h3 class="accordion__title">Titulo Luisito H3</h3>
-				<p class="accordion__description">{{ descriptionLimiter }}</p>
-			</a>
 		</article>
 		<article class="accordion__slide">
 			<img class="accordion__image" src="../assets/lui.webp" alt="" />
 			<a class="accordion__link" href="#"
 				><h3 class="accordion__title">Titulo Luisito H3</h3>
-				<p class="accordion__description">{{ descriptionLimiter }}</p>
+				<p class="accordion__description">lorem10 regrh trhtr htr trh</p>
 			</a>
 		</article>
 		<article class="accordion__slide">
 			<img class="accordion__image" src="../assets/lu1.jpg" alt="" />
 			<a class="accordion__link" href="#"
 				><h3 class="accordion__title">Titulo Luisito H3</h3>
-				<p class="accordion__description">{{ descriptionLimiter }}</p>
+				<p class="accordion__description">lorem10 regrh trhtr htr trh</p>
 			</a>
 		</article>
 		<article class="accordion__slide">
 			<img class="accordion__image" src="../assets/lu3.jpg" alt="" />
 			<a class="accordion__link" href="#"
 				><h3 class="accordion__title">Titulo Luisito H3</h3>
-				<p class="accordion__description">{{ descriptionLimiter }}</p>
+				<p class="accordion__description">lorem10 regrh trhtr htr trh</p>
 			</a>
 		</article>
 	</div>
@@ -70,82 +71,123 @@ export default {
 
 .accordion {
 	display: flex;
-	height: 80vh;
-	gap: 0.75rem;
-	background: #000101;
-	margin: 2rem 0;
+	background-repeat: no-repeat;
+	gap: 8px;
+	margin: 16px;
+	overflow: auto;
+	scroll-snap-type: block mandatory;
+	width: 100vw;
+	z-index: 0;
 }
 
 .accordion__slide {
-	display: flex;
-	filter: grayscale(75%);
-	flex-direction: column;
-	justify-content: flex-end;
-	object-fit: cover;
-	max-width: max-content;
-	width: 100%;
-	transition: 0.6s all ease-in-out;
-	background: #000101;
+	/* margin-left: calc(24px - 8px); */
+	min-width: auto;
+	scroll-snap-align: start;
 }
 
 .accordion__slide:first-child {
-	width: 200%;
-	filter: grayscale(0%);
+}
+
+.accordion__slide:last-child {
+	/* margin-right: calc(24px - 8px); */
 }
 
 .accordion:hover .accordion__slide {
-	width: 100%;
 }
 
 .accordion .accordion__slide:hover {
-	width: 200%;
-	filter: grayscale(0%);
 }
 
 .accordion__image {
-	position: fixed;
+	border-radius: 2px;
+	height: 400px;
 	object-fit: cover;
-	width: 100%;
-	height: 100%;
-	z-index: -99;
+	width: 300px;
+	max-width: 660px;
 }
 
 .accordion__link {
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
-	height: 100%;
-	text-decoration: none;
-	color: #fff;
-	padding: 0.75rem 1rem 2rem 0.75rem;
-	background: linear-gradient(
-		0deg,
-		rgba(0, 0, 0, 1) 0%,
-		rgba(0, 0, 0, 0.65) 35%,
-		rgba(68, 68, 68, 0.1) 100%
-	);
+	display: block;
+	position: relative;
+	bottom: 100%;
 }
 
 .accordion__title,
 .accordion__description {
-	color: #fff;
 }
 
 .accordion__title {
-	font-size: 1.6rem;
-	text-align: left;
-	margin: 1rem 0;
-	font-family: "Poppins";
-	font-weight: 600;
-	font-display: swap;
 }
 
 .accordion__description {
-	font-size: 14px;
-	max-width: max-content;
-	margin: 0;
-	line-height: 1.5rem;
-	font-family: "Poppins";
-	font-weight: normal;
+}
+
+@media only screen and (min-width: 1024px) {
+	.accordion {
+		display: flex;
+		height: 80vh;
+		gap: 16px;
+		margin: 2rem 0;
+	}
+
+	.accordion__slide {
+		display: flex;
+		filter: grayscale(75%);
+		flex-direction: column;
+		justify-content: flex-end;
+		object-fit: cover;
+		width: 100%;
+		transition: 0.35s all ease-in-out;
+		background: #000101;
+	}
+
+	.accordion__slide:first-child {
+		width: 200%;
+		filter: grayscale(0%);
+	}
+
+	.accordion:hover .accordion__slide {
+		width: 100%;
+	}
+
+	.accordion .accordion__slide:hover {
+		width: 200%;
+		filter: grayscale(0%);
+	}
+
+	.accordion__image {
+		position: fixed;
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
+
+	.accordion__link {
+		text-decoration: none;
+	}
+
+	.accordion__title,
+	.accordion__description {
+		color: #fff;
+	}
+
+	.accordion__title {
+		font-size: 1.6rem;
+		text-align: left;
+		margin: 1rem 0;
+		font-family: "Inter";
+		font-weight: 600;
+		font-display: swap;
+	}
+
+	.accordion__description {
+		font-size: 14px;
+		max-width: max-content;
+		margin: 0;
+		line-height: 1.5rem;
+		font-family: "Poppins";
+		font-weight: normal;
+	}
 }
 </style>
